@@ -5,41 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>1539BDFC-4562-4411-B342-56B585D7AB16</string>
+	<string>DA128A6B-4FA3-4C75-A158-6015264D6249</string>
 	<key>IDESourceControlProjectName</key>
 	<string>mote</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9ABCBC69-56B9-490E-A90C-B4333537AF68</key>
-		<string>svn://125.65.113.12:56804/repos/syq/ios/kongqueling</string>
+		<key>7C94298D-7F0E-4FE6-9A55-530D78B12CE2</key>
+		<string>https://bitbucket.org/medimedi/kql.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>kongqueling/mote.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9ABCBC69-56B9-490E-A90C-B4333537AF68</key>
-		<string>../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>9ABCBC69-56B9-490E-A90C-B4333537AF68</key>
-		<string>svn://125.65.113.12:56804/repos</string>
+		<key>7C94298D-7F0E-4FE6-9A55-530D78B12CE2</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>svn://125.65.113.12:56804/repos/syq/ios/kongqueling/mote.xcodeproj</string>
+	<string>https://bitbucket.org/medimedi/kql.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9ABCBC69-56B9-490E-A90C-B4333537AF68</string>
+	<string>7C94298D-7F0E-4FE6-9A55-530D78B12CE2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9ABCBC69-56B9-490E-A90C-B4333537AF68</string>
+			<string>7C94298D-7F0E-4FE6-9A55-530D78B12CE2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>kongqueling</string>
+			<string>kql</string>
 		</dict>
 	</array>
 </dict>
