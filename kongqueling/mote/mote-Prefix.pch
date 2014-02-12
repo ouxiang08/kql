@@ -1,0 +1,31 @@
+//
+// Prefix header for all source files of the 'mote' target in the 'mote' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "MoteConfig.h"
+    #import "UrlHelper.h"
+    #import "SBJson.h"
+    #import "ToastViewAlert.h"
+    #import "MokaNetworkController.h"
+    #import "CustomTabBar.h"
+    #import "UIImage+Additions.h"
+    #import "WCCNavigationController.h"
+    #import "MainModel.h"
+    #import "MokaIndicatorView.h"
+    #import "UIImageView+WebCache.h"
+    #import "NSMutableDictionaryFactory.h"
+    #import "UIBarButtonItemFactory.h"
+    #import "FilePathHelper.h"
+    #import "NSString+Additions.h"
+    #import "UIView+Additions.h"
+    #import <ShareSDK/ShareSDK.h>
+#endif
