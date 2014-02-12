@@ -57,12 +57,20 @@ static UIView* viewShare;
     self.window.rootViewController = self.nav;
     
     
+    NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+    [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    self.nav.navigationBar.titleTextAttributes = navBarTextAttributes;
     
     
     if (![MainModel sharedObject].strUid) {
         StartPageViewController *rsVC = [[StartPageViewController alloc] init];
         //LoginViewController *loginVC = [[LoginViewController alloc] init];
         UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+        
+        NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+        [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+        navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+        
         [self.nav presentViewController:navStart animated:NO completion:^(void){}];
     }else{
         
@@ -76,6 +84,10 @@ static UIView* viewShare;
             StartPageViewController *rsVC = [[StartPageViewController alloc] init];
             //LoginViewController *loginVC = [[LoginViewController alloc] init];
             UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+            NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+            [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+            navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+            
             [self.nav presentViewController:navStart animated:NO completion:^(void){}];
         }
     }

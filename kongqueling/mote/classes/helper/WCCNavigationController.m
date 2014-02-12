@@ -115,11 +115,11 @@ static inline double timer_elapsed (uint64_t start, uint64_t end)
 //            UIImage* highlightedImage = [[UIImage imageNamed:@"nav_bar_button_bg_normal.png"] resizableImageWithOffsetTop:6.0f left:6.0f bottom:6.0f right:6.0f];
 //            [appearance setBackgroundImage:highlightedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
             
-            UIImage* backNormalImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_normal.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
-            //UIImage* backHighlightedImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_highlighted.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
-            UIImage* backHighlightedImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_normal.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
-            [appearance setBackButtonBackgroundImage:backNormalImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-            [appearance setBackButtonBackgroundImage:backHighlightedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+//            UIImage* backNormalImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_normal.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
+//            //UIImage* backHighlightedImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_highlighted.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
+//            UIImage* backHighlightedImage = [[UIImage imageNamed:@"nav_bar_button_back_bg_normal.png"] resizableImageWithOffsetTop:5.0f left:15.0f bottom:5.0f right:5.0f];
+//            [appearance setBackButtonBackgroundImage:backNormalImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//            [appearance setBackButtonBackgroundImage:backHighlightedImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
         }
     });
     

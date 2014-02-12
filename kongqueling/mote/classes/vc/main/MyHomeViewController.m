@@ -83,16 +83,12 @@
     }else if (indexPath.row ==2) {
         MyCardListViewController *cardListVC = [[MyCardListViewController alloc] init];
         [self.navigationController pushViewController:cardListVC animated:YES];
-    }else if (indexPath.row == 6) {
-        
+    }else if (indexPath.row == 5) {
         SettingViewController *personal = [[SettingViewController alloc] init];
         [self.navigationController pushViewController:personal animated:YES];
     }else if (indexPath.row == 0) {
         MessageCatViewController *msgListVC = [[MessageCatViewController alloc] init];
         [self.navigationController pushViewController:msgListVC animated:YES];
-    }else if (indexPath.row == 5) {
-        MokaTabBarViewController *tabarVC = (MokaTabBarViewController *)self.parentViewController;
-        [tabarVC touchDownAtItemAtIndex:1];
     }else if (indexPath.row == 4) {
         MyInvitationListViewController *invitationVC = [[MyInvitationListViewController alloc] init];
         invitationVC.iStatus = 0;
