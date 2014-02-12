@@ -42,22 +42,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mote/classes/LoginOld/vc/RSViewController.m"
-            timestampString = "413690984.802255"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-nextToFinishYourInformation"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "mote/classes/LoginOld/vc/RSViewController.m"
             timestampString = "413690988.463105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
