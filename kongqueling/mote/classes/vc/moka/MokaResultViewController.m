@@ -67,7 +67,7 @@
 
 -(void)onSaveShare{
     
-    
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     UIGraphicsBeginImageContextWithOptions(_container.frame.size,NO,0);
     [_container.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();

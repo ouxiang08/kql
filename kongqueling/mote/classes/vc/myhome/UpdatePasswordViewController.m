@@ -120,7 +120,6 @@
                 }else{
                     self.maskView.hidden = YES;
                     NSString *info = [dictResponse valueForKey:@"msg"];
-                    
                     [[ToastViewAlert defaultCenter] postAlertWithMessage:info];
                 }
                 
