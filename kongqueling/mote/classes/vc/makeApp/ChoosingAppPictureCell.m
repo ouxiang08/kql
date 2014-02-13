@@ -22,11 +22,6 @@
     self.imageView3.image = nil;
     self.imageView4.image = nil;
     
-    self.isChecked1 = NO;
-    self.isChecked2 = NO;
-    self.isChecked3 = NO;
-    self.isChecked4 = NO;
-    
     self.buttonSelected1.tag = -1;
     self.buttonSelected2.tag = -1;
     self.buttonSelected3.tag = -1;

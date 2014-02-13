@@ -27,11 +27,6 @@
 @property(nonatomic, strong) IBOutlet UIButton *buttonSelected3;
 @property(nonatomic, strong) IBOutlet UIButton *buttonSelected4;
 
-@property(nonatomic, assign) BOOL isChecked1;
-@property(nonatomic, assign) BOOL isChecked2;
-@property(nonatomic, assign) BOOL isChecked3;
-@property(nonatomic, assign) BOOL isChecked4;
-
 @property(nonatomic, assign) id<ChoosingAppPictureCellDelegate>delegate;
 
 @end

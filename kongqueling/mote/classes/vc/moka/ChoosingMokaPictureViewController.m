@@ -252,7 +252,6 @@
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected1 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            cell.isChecked1 = YES;
             [_arrIsCellSelected addObject:@"1"];
         }else{
             [_arrIsCellSelected addObject:@"0"];
@@ -272,7 +271,6 @@
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected2 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            cell.isChecked2 = YES;
             [_arrIsCellSelected addObject:@"1"];
         }else{
             [_arrIsCellSelected addObject:@"0"];
@@ -291,7 +289,6 @@
         int i = [self findString:photoModel.imgPath];
        if (i!=-1) {
            [cell.buttonSelected3 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            cell.isChecked3 = YES;
            [_arrIsCellSelected addObject:@"1"];
        }else{
            [_arrIsCellSelected addObject:@"0"];
@@ -311,7 +308,6 @@
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected4 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            cell.isChecked4 = YES;
             [_arrIsCellSelected addObject:@"1"];
         }else{
             [_arrIsCellSelected addObject:@"0"];
