@@ -17,6 +17,7 @@
     NSMutableArray *_arrPhoto;
     NSMutableArray *_arrImageView;
     NSMutableArray *_arrImage;
+    NSMutableArray *_arrIsPictureSelected;
     int _iSelectedCount;
     CGFloat _widthOffset;
 }
@@ -38,6 +39,7 @@
     _arrPhoto = [[NSMutableArray alloc] init];
     _arrImageView = [[NSMutableArray alloc] init];
     _arrImage = [[NSMutableArray alloc] init];
+    _arrIsPictureSelected = [[NSMutableArray alloc] init];
     self.arrImageSelectedUrl = [[NSMutableArray alloc] init];
     
     return self;
@@ -48,7 +50,7 @@
 {
     [super viewDidLoad];
     self.title = @"作品集";
-     self.labelConfirm.text =[NSString stringWithFormat:@"确认(%d/%d)",_iSelectedCount,self.iMaxPictureNumber];
+    self.labelConfirm.text =[NSString stringWithFormat:@"确认(%d/%d)",_iSelectedCount,self.iMaxPictureNumber];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItemFactory getBarButtonItemWithImage:@"choosing_moka_picture_back_bg" selector:@selector(onBack:) target:self];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItemFactory getBarButtonItemWithImage:@"choosing_moka_picture_cancel_bg" selector:@selector(onCancel:) target:self];
@@ -66,6 +68,7 @@
             PhotoModel *model = [[PhotoModel alloc] initWithDictionary:dicPhoto];
             [_arrPhoto addObject:model];
         }
+        [_arrIsPictureSelected removeAllObjects];
         [self.tableViewPhoto reloadData];
     } andFailureBlock:^(NSError *error) {
         
@@ -175,6 +178,24 @@
     self.labelConfirm.text =[NSString stringWithFormat:@"确认(%d/%d)",_iSelectedCount,self.iMaxPictureNumber] ;
 }
 
+-(void)didClickAppPictureCell:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    NSString *strIsPictureSelected = [_arrIsPictureSelected objectAtIndex:button.tag];
+    if ([strIsPictureSelected isEqualToString:@"0"]) {
+        if (_iSelectedCount!=self.iMaxPictureNumber) {
+            [button setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
+            [self didClickCellAtIndex:button.tag];
+            [_arrIsPictureSelected replaceObjectAtIndex:button.tag withObject:@"1"];
+        }else{
+            [[ToastViewAlert defaultCenter] postAlertWithMessage:[NSString stringWithFormat:@"已选择照片数量不能超过%d张",self.iMaxPictureNumber]];
+        }
+    }else{
+        [button setImage:nil forState:UIControlStateNormal];
+        [self didUnClickCellAtIndex:button.tag];
+        [_arrIsPictureSelected replaceObjectAtIndex:button.tag withObject:@"0"];
+    }
+}
+
 -(int)findString:(NSString *)str{
     for (int i=0; i<self.arrImageSelectedUrl.count; i++) {
         NSString *strImageUrl = [self.arrImageSelectedUrl objectAtIndex:i];
@@ -206,7 +227,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ChoosingMokaPictureCell";
+    static NSString *CellIdentifier = @"ChoosingAppPictureCell";
     ChoosingAppPictureCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[ChoosingAppPictureCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -222,14 +243,17 @@
         cell.imageView1 .contentMode = KimageShowMode;
         [cell.imageView1 setClipsToBounds:YES];
         cell.buttonSelected1.tag = index;
+        [cell.buttonSelected1 addTarget:self action:@selector(didClickAppPictureCell:) forControlEvents:UIControlEventTouchUpInside];
         
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected1 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
             cell.isChecked1 = YES;
+            [_arrIsPictureSelected addObject:@"1"];
         }else{
             [cell.buttonSelected1 setImage:nil forState:UIControlStateNormal];
             cell.isChecked1 = NO;
+            [_arrIsPictureSelected addObject:@"0"];
         }
         index++;
     }
@@ -241,14 +265,17 @@
         cell.imageView2 .contentMode = KimageShowMode;
         [cell.imageView2 setClipsToBounds:YES];
         cell.buttonSelected2.tag = index;
+        [cell.buttonSelected2 addTarget:self action:@selector(didClickAppPictureCell:) forControlEvents:UIControlEventTouchUpInside];
         
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected2 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
             cell.isChecked2 = YES;
+             [_arrIsPictureSelected addObject:@"1"];
         }else{
             [cell.buttonSelected2 setImage:nil forState:UIControlStateNormal];
             cell.isChecked2 = NO;
+             [_arrIsPictureSelected addObject:@"0"];
         }
         index++;
     }
@@ -260,14 +287,17 @@
         cell.imageView3 .contentMode = KimageShowMode;
         [cell.imageView3 setClipsToBounds:YES];
         cell.buttonSelected3.tag = index;
+        [cell.buttonSelected3 addTarget:self action:@selector(didClickAppPictureCell:) forControlEvents:UIControlEventTouchUpInside];
         
         int i = [self findString:photoModel.imgPath];
        if (i!=-1) {
            [cell.buttonSelected3 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
             cell.isChecked3 = YES;
+            [_arrIsPictureSelected addObject:@"1"];
        }else{
            [cell.buttonSelected3 setImage:nil forState:UIControlStateNormal];
            cell.isChecked3 = NO;
+            [_arrIsPictureSelected addObject:@"0"];
        }
         index++;
     }
@@ -279,14 +309,17 @@
         cell.imageView4 .contentMode = KimageShowMode;
         [cell.imageView4 setClipsToBounds:YES];
         cell.buttonSelected4.tag = index;
+        [cell.buttonSelected4 addTarget:self action:@selector(didClickAppPictureCell:) forControlEvents:UIControlEventTouchUpInside];
         
         int i = [self findString:photoModel.imgPath];
         if (i!=-1) {
             [cell.buttonSelected4 setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
             cell.isChecked4 = YES;
+             [_arrIsPictureSelected addObject:@"1"];
         }else{
             [cell.buttonSelected4 setImage:nil forState:UIControlStateNormal];
             cell.isChecked4 = NO;
+             [_arrIsPictureSelected addObject:@"0"];
         }
         index++;
     }

@@ -39,53 +39,6 @@
     return self;
 }
 
--(IBAction)onPictureClick:(id)sender{
-    UIButton *button = (UIButton *)sender;
-    if (button.tag%4 == 0) {
-        if (self.isChecked1) {
-             [button setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            self.isChecked1 = NO;
-            [self.delegate didUnClickCellAtIndex:button.tag];
-        }else{
-            [button setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            self.isChecked1 = YES;
-            [self.delegate didClickCellAtIndex:button.tag];
-        }
-    }else if(button.tag%4 == 1){
-        if (self.isChecked2) {
-            [button setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            self.isChecked2 = NO;
-            [self.delegate didUnClickCellAtIndex:button.tag];
-        }else{
-            [button setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            self.isChecked2 = YES;
-            [self.delegate didClickCellAtIndex:button.tag];
-        }
-    }else if(button.tag%4 == 2){
-        if (self.isChecked3) {
-            [button setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            self.isChecked3 = NO;
-            [self.delegate didUnClickCellAtIndex:button.tag];
-        }else{
-            [button setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            self.isChecked3 = YES;
-            [self.delegate didClickCellAtIndex:button.tag];
-        }
-    }else if(button.tag%4 == 3){
-        if (self.isChecked4) {
-            [button setImage:[UIImage imageNamed:nil] forState:UIControlStateNormal];
-            self.isChecked4 = NO;
-            [self.delegate didUnClickCellAtIndex:button.tag];
-        }else{
-            [button setImage:[UIImage imageNamed:@"Overlay"] forState:UIControlStateNormal];
-            self.isChecked4 = YES;
-            [self.delegate didClickCellAtIndex:button.tag];
-        }
-    }else{
-        
-    }
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
