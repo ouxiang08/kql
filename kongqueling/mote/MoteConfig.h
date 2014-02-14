@@ -5,10 +5,10 @@
 //  Created by sean on 11/9/13.
 //  Copyright (c) 2013 zlm. All rights reserved.
 //
-/*
-#define KHomeUrlDefault @"http://prj.morework.cn/syq/api"
-#define KTemplateImageUrlDefault @"http://prj.morework.cn/syq/uploads/"
-*/
+
+//#define KHomeUrlDefault @"http://prj.morework.cn/syq/api"
+//#define KTemplateImageUrlDefault @"http://prj.morework.cn/syq/uploads/"
+
 #define KHomeUrlDefault @"http://kongqueling.tupai.cc/api"
 #define KTemplateImageUrlDefault @"http://kongqueling.tupai.cc/uploads/"
 

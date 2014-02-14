@@ -63,7 +63,7 @@
 
 +(NSString *)stringUrlGetMerchantQueryInfo;
 
-+(NSString *)stringUrlGetMerchantList:(int)iPage city:(NSString *)strCity area:(NSString *)strArea hotCity:(NSString *)strHotCity lat:(float)fLat lng:(float)fLng industry:(NSString *)strIndustry sort:(NSString *)strSort;
++(NSString *)stringUrlGetMerchantList:(int)iPage city:(NSString *)strCity area:(NSString *)strArea hotCity:(NSString *)strHotCity lat:(float)fLat lng:(float)fLng industry:(NSString *)strIndustry sort:(NSString *)strSort sname:(NSString *)strSname;
 
 +(NSString *)stringUrlGetMerchantDetail:(NSString *)strMid;
 

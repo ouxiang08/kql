@@ -157,14 +157,15 @@
     return strURL;
 }
 
-+(NSString *)stringUrlGetMerchantList:(int)iPage city:(NSString *)strCity area:(NSString *)strArea hotCity:(NSString *)strHotCity lat:(float)fLat lng:(float)fLng industry:(NSString *)strIndustry sort:(NSString *)strSort{
++(NSString *)stringUrlGetMerchantList:(int)iPage city:(NSString *)strCity area:(NSString *)strArea hotCity:(NSString *)strHotCity lat:(float)fLat lng:(float)fLng industry:(NSString *)strIndustry sort:(NSString *)strSort sname:(NSString *)strSname{
     NSString *strTmpCity = [strCity stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *strTmpArea = [strArea stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *strTmpHotCity = [strHotCity stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *strTmpIndustry = [strIndustry stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *strTmpSort= [strSort stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *strTmpSname= [strSname stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *strURL = [NSString stringWithFormat:@"%@/getmerchantlist?start=%d&city=%@&area=%@&hotcity=%@&lat=%f&lng=%f&industry=%@&sort=%@&",KHomeUrlDefault,iPage,strTmpCity,strTmpArea,strTmpHotCity,fLat,fLng,strTmpIndustry,strTmpSort];
+    NSString *strURL = [NSString stringWithFormat:@"%@/getmerchantlist?start=%d&city=%@&area=%@&hotcity=%@&lat=%f&lng=%f&industry=%@&sort=%@&&sname=%@&",KHomeUrlDefault,iPage,strTmpCity,strTmpArea,strTmpHotCity,fLat,fLng,strTmpIndustry,strTmpSort,strTmpSname];
     strURL = [self addCommonParameter:strURL];
     return strURL;
 }

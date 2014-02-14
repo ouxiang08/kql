@@ -59,7 +59,7 @@
     
     self.userText=[[UITextField alloc] initWithFrame:CGRectMake(80, 48, 225, 20)];
     self.userText.placeholder=@"请输入手机号";
-    self.userText.text = kDefaultMobile;
+    //self.userText.text = kDefaultMobile;
     self.userText.backgroundColor=[UIColor clearColor];
     self.userText.clearButtonMode=UITextFieldViewModeWhileEditing;
     [self.userText setFont:[UIFont fontWithName:KdefaultFont size:KRegFontSize]];
@@ -67,7 +67,7 @@
     
     self.passText=[[UITextField alloc] initWithFrame:CGRectMake(80, 88, 225, 20)];
     self.passText.placeholder=@"请输入密码";
-    self.passText.text = kDefaultPassword;
+    //self.passText.text = kDefaultPassword;
     self.passText.backgroundColor=[UIColor clearColor];
     self.passText.clearButtonMode=UITextFieldViewModeWhileEditing;
     [self.passText setFont:[UIFont fontWithName:KdefaultFont size:KRegFontSize]];
@@ -112,8 +112,8 @@
 
 
 -(void)nextToFinishYourInformation{
-    if ((self.userText.text.length==11)&&[[self.userText.text substringToIndex:1] isEqualToString:@"1"]&&![self.passText.text isEqualToString:@""]) {
-    //if(TRUE){
+    //if ((self.userText.text.length==11)&&[[self.userText.text substringToIndex:1] isEqualToString:@"1"]&&![self.passText.text isEqualToString:@""]) {
+    if (![self.userText.text isEqualToString:@""]&&![self.passText.text isEqualToString:@""]) {
 
         NSString *strUrl = [UrlHelper stringUrlDoLogin:self.userText.text password:self.passText.text bduid:[[MainModel sharedObject] strBDUid] bdcid:[[MainModel sharedObject] strBDChannelId]];
         [self requestDataWithUrl:strUrl successBlock:^(NSDictionary *dictResponse) {

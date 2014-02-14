@@ -554,6 +554,8 @@
 		4A6B5E0618780D46005A127C /* kql_code.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A6B5E0518780D46005A127C /* kql_code.png */; };
 		4A9204991890926200E8EB8F /* MyCardDetalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9204971890926200E8EB8F /* MyCardDetalViewController.m */; };
 		4A92049A1890926200E8EB8F /* MyCardDetalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9204981890926200E8EB8F /* MyCardDetalViewController.xib */; };
+		4A95EA6618ADC198002F81F7 /* finder_search_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A95EA6418ADC198002F81F7 /* finder_search_box.png */; };
+		4A95EA6718ADC198002F81F7 /* finder_search_box@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A95EA6518ADC198002F81F7 /* finder_search_box@2x.png */; };
 		4A9F23671882E6C40035DCC3 /* making_app_loading_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F23611882E6AA0035DCC3 /* making_app_loading_logo.png */; };
 		4A9F23681882E6C40035DCC3 /* making_app_loading_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F23621882E6AE0035DCC3 /* making_app_loading_box.png */; };
 		4A9F23691882E6C40035DCC3 /* making_app_loading_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A9F23631882E6B20035DCC3 /* making_app_loading_bg.png */; };
@@ -1325,6 +1327,8 @@
 		4A9204961890926200E8EB8F /* MyCardDetalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCardDetalViewController.h; path = ../myhome/MyCardDetalViewController.h; sourceTree = "<group>"; };
 		4A9204971890926200E8EB8F /* MyCardDetalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCardDetalViewController.m; path = ../myhome/MyCardDetalViewController.m; sourceTree = "<group>"; };
 		4A9204981890926200E8EB8F /* MyCardDetalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyCardDetalViewController.xib; path = ../myhome/MyCardDetalViewController.xib; sourceTree = "<group>"; };
+		4A95EA6418ADC198002F81F7 /* finder_search_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finder_search_box.png; sourceTree = "<group>"; };
+		4A95EA6518ADC198002F81F7 /* finder_search_box@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finder_search_box@2x.png"; sourceTree = "<group>"; };
 		4A9F23611882E6AA0035DCC3 /* making_app_loading_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = making_app_loading_logo.png; sourceTree = "<group>"; };
 		4A9F23621882E6AE0035DCC3 /* making_app_loading_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = making_app_loading_box.png; sourceTree = "<group>"; };
 		4A9F23631882E6B20035DCC3 /* making_app_loading_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = making_app_loading_bg.png; sourceTree = "<group>"; };
@@ -2247,6 +2251,8 @@
 		14C5CD81186AAC1D00E4C169 /* finder */ = {
 			isa = PBXGroup;
 			children = (
+				4A95EA6418ADC198002F81F7 /* finder_search_box.png */,
+				4A95EA6518ADC198002F81F7 /* finder_search_box@2x.png */,
 				B96D6F4D186C771D00F3AB0F /* merchant_logo_default.png */,
 				B96D6F4E186C771D00F3AB0F /* merchant_logo_default@2x.png */,
 				B96D6F45186C706200F3AB0F /* merchant_invite_btn_bg.png */,
@@ -2804,6 +2810,7 @@
 				14E569E8183A215100263450 /* moka_tabbar_art_selected_bg.png in Resources */,
 				14E569E9183A215100263450 /* moka_tabbar_art_selected_bg@2x.png in Resources */,
 				14E569EA183A215100263450 /* moka_tabbar_home_normal_bg.png in Resources */,
+				4A95EA6618ADC198002F81F7 /* finder_search_box.png in Resources */,
 				14E569EB183A215100263450 /* moka_tabbar_home_normal_bg@2x.png in Resources */,
 				14E569EC183A215100263450 /* moka_tabbar_home_selected_bg.png in Resources */,
 				14E569ED183A215100263450 /* moka_tabbar_home_selected_bg@2x.png in Resources */,
@@ -3090,6 +3097,7 @@
 				4A6B5E001877FCD3005A127C /* MechantWebViewController.xib in Resources */,
 				4A6B5E03187801FC005A127C /* no_header.jpeg in Resources */,
 				4A6B5E04187801FC005A127C /* no_header@2x.jpeg in Resources */,
+				4A95EA6718ADC198002F81F7 /* finder_search_box@2x.png in Resources */,
 				4A6B5E0618780D46005A127C /* kql_code.png in Resources */,
 				143FB1C6187959DA00597308 /* SetHomePictureViewController.xib in Resources */,
 				143FB1CB18795A2F00597308 /* SetHomePictureTableViewCell.xib in Resources */,
@@ -3405,16 +3413,16 @@
 		148B07FE1828C0EE00F17369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ma Kun (EGPRWCW9N9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ma Kun (EGPRWCW9N9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yongfeng xu (5V7P43786F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Connection,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Core,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Connection,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Core,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/UI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mote/mote-Prefix.pch";
@@ -3422,15 +3430,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
-					"/Users/sean/kql/kongqueling/lib/ios_api/Release-iphoneos",
-					/Users/sean/kql/kongqueling/lib/Baidu_Push,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
+					"/Users/harry/kql/kongqueling/lib/ios_api/Release-iphoneos",
+					/Users/harry/kql/kongqueling/lib/Baidu_Push,
 				);
 				PRODUCT_NAME = "孔雀翎";
-				PROVISIONING_PROFILE = "C84089AE-183F-4B90-8052-16C270569484";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C84089AE-183F-4B90-8052-16C270569484";
+				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "07E23176-3114-42F0-A5F0-801523C17BBE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3438,16 +3446,16 @@
 		148B07FF1828C0EE00F17369 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ma Kun (EGPRWCW9N9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ma Kun (EGPRWCW9N9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yongfeng xu (5V7P43786F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Connection,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Core,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Connection,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Core,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/UI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mote/mote-Prefix.pch";
@@ -3455,15 +3463,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
-					/Users/sean/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
-					"/Users/sean/kql/kongqueling/lib/ios_api/Release-iphoneos",
-					/Users/sean/kql/kongqueling/lib/Baidu_Push,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
+					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
+					"/Users/harry/kql/kongqueling/lib/ios_api/Release-iphoneos",
+					/Users/harry/kql/kongqueling/lib/Baidu_Push,
 				);
 				PRODUCT_NAME = "孔雀翎";
-				PROVISIONING_PROFILE = "C84089AE-183F-4B90-8052-16C270569484";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C84089AE-183F-4B90-8052-16C270569484";
+				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "07E23176-3114-42F0-A5F0-801523C17BBE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

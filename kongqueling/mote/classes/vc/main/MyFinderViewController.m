@@ -52,6 +52,23 @@
     //[self getMerchantQueryInfo];
     
     // Do any additional setup after loading the view from its nib.
+    
+    
+    UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
+    tapGr.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tapGr];
+}
+
+-(void)viewTapped:(UITapGestureRecognizer*)tapGr
+{
+    [_txtSearch resignFirstResponder];
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+   [self toLoad];
+    [_txtSearch resignFirstResponder];
+    return YES;
 }
 
 -(void)getMerchantQueryInfo{
@@ -59,7 +76,14 @@
     if (!_condCity) {
         _condCity = @"";
     }
-    NSString *strUrl = [UrlHelper stringUrlGetMerchantList:_iPage city:_condCity area:@"" hotCity:@"" lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.latitude industry:_condIndustry sort:_condSort];
+    NSString *strUrl = @"";
+    
+    if (!_isHot) {
+        strUrl = [UrlHelper stringUrlGetMerchantList:_iPage city:_condCity area:_condArea hotCity:@"" lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort sname:_txtSearch.text];
+        
+    }else{
+        strUrl = [UrlHelper stringUrlGetMerchantList:_iPage city:@"" area:@"" hotCity:_condArea lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort sname:_txtSearch.text];
+    }
     
     [self requestDataWithUrl:strUrl successBlock:^(NSDictionary *dictResponse) {
         self.maskView.hidden = YES;
@@ -139,10 +163,10 @@
 - (void)toLoad{
     NSString *strURL;
     if (!_isHot) {
-        strURL = [UrlHelper stringUrlGetMerchantList:_iPage city:_condCity area:_condArea hotCity:@"" lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort];
+        strURL = [UrlHelper stringUrlGetMerchantList:_iPage city:_condCity area:_condArea hotCity:@"" lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort sname:_txtSearch.text];
         
     }else{
-        strURL = [UrlHelper stringUrlGetMerchantList:_iPage city:@"" area:@"" hotCity:_condArea lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort];
+        strURL = [UrlHelper stringUrlGetMerchantList:_iPage city:@"" area:@"" hotCity:_condArea lat:[[MainModel sharedObject] currentLocation].coordinate.latitude lng:[[MainModel sharedObject] currentLocation].coordinate.longitude industry:_condIndustry sort:_condSort sname:_txtSearch.text];
     }
     
     [self updateData:strURL];

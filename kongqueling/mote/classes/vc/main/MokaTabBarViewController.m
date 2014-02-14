@@ -76,19 +76,31 @@
 
 - (void)setSelectedViewController:(UIViewController *)selectedViewController
 {
-    self.navigationItem.title = selectedViewController.navigationItem.title;
-    self.navigationItem.titleView = selectedViewController.navigationItem.titleView;
-    self.navigationItem.rightBarButtonItem = selectedViewController.navigationItem.rightBarButtonItem;
-    self.navigationItem.leftBarButtonItem = selectedViewController.navigationItem.leftBarButtonItem;
-    [super setSelectedViewController:selectedViewController];
+    int otheruid = [[[MainModel sharedObject].dictUserInfo valueForKey:@"otheruid"] intValue];
+    
+    if (otheruid>0 && ([selectedViewController isKindOfClass:[MyFinderViewController class]] || [selectedViewController isKindOfClass:[MyTaskListViewController class]])) {
+        //[[ToastViewAlert defaultCenter] postAlertWithMessage:@"对不起，您没有改模块的权限"];
+    }else{
+        self.navigationItem.title = selectedViewController.navigationItem.title;
+        self.navigationItem.titleView = selectedViewController.navigationItem.titleView;
+        self.navigationItem.rightBarButtonItem = selectedViewController.navigationItem.rightBarButtonItem;
+        self.navigationItem.leftBarButtonItem = selectedViewController.navigationItem.leftBarButtonItem;
+        [super setSelectedViewController:selectedViewController];
+    }
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex
 {
-    [super setSelectedIndex:selectedIndex];
-   // [self updateNavigationItem];
-    [self.customTabBar selectTabBarItem: selectedIndex];
-    //[self customTabBarSelectedAtIndex: selectedIndex];
+    int otheruid = [[[MainModel sharedObject].dictUserInfo valueForKey:@"otheruid"] intValue];
+    
+    if (otheruid>0 && (selectedIndex==1||selectedIndex==2)) {
+        [[ToastViewAlert defaultCenter] postAlertWithMessage:@"对不起，您没有改模块的权限"];
+    }else{
+        [super setSelectedIndex:selectedIndex];
+       // [self updateNavigationItem];
+        [self.customTabBar selectTabBarItem: selectedIndex];
+        //[self customTabBarSelectedAtIndex: selectedIndex];
+    }
 }
 
 - (void)touchDownAtItemAtIndex:(NSUInteger)itemIndex
