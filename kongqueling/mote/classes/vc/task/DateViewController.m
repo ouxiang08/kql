@@ -279,7 +279,12 @@
     comps =[calendar components:(NSWeekCalendarUnit | NSWeekdayCalendarUnit |NSWeekdayOrdinalCalendarUnit)
                        fromDate:date];
     NSInteger weekday = [comps weekday]; //currrent day is which weekday
-    int iFirstDay = abs(day%7-weekday)+1;
+    
+    int iFirstDay = weekday-day%7;
+    if (iFirstDay<0) {
+        iFirstDay +=7;
+    }
+    //int iFirstDay = abs(day%7-weekday)+1;
     int february =28;
     int monthDays = 31;
     
@@ -300,7 +305,7 @@
             break;
     }
     
-    int iXOffset = (iFirstDay-1)*46;
+    int iXOffset = iFirstDay*46;
     int iYOffset = 0;
     
     for (UIView *view in self.viewDate.subviews) {
