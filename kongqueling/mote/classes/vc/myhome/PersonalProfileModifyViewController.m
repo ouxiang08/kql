@@ -148,6 +148,7 @@
         [self.view addSubview:self.viewSingle];
         self.labelLeft.text = @"年龄:";
         self.title = @"修改年龄";
+        NSLog(@"_baseinfo:%@",_baseinfo);
         self.textFieldSingle.text = [NSString stringWithFormat:@"%d", [[_baseinfo valueForKey:@"age"] integerValue]];
         self.labelUnit.text = @"岁";
         self.textFieldSingle.keyboardType = UIKeyboardTypeNumberPad;

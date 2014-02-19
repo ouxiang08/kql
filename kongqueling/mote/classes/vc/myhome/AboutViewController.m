@@ -39,12 +39,29 @@
     UIImageView *bgImageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0,image.size.width, image.size.height)];
     bgImageview.image=image;
     [sclMain addSubview:bgImageview];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // app名称
+    //NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    // app版本
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    // app build版本
+    //NSString *app_build = [infoDictionary objectForKey:@"CFBundleVersion"];
     /*
     UIImage *image2=[UIImage imageNamed:@"about_txt.png"];
     UIImageView *textImageview=[[UIImageView alloc] initWithFrame:CGRectMake(0, 15,image2.size.width, image2.size.height)];
     textImageview.image=image2;
     [sclMain addSubview:textImageview];
 */
+    
+    UILabel *numLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 15, 310, 12)];
+    numLabel.font=[UIFont fontWithName:KdefaultFont size:12];
+    numLabel.backgroundColor=[UIColor clearColor];
+    numLabel.textAlignment = NSTextAlignmentRight;
+    numLabel.text= [NSString stringWithFormat:@"软件版本：V %@",app_Version];
+    [self.view addSubview:numLabel];
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 

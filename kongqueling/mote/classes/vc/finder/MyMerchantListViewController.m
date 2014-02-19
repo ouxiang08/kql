@@ -90,8 +90,8 @@
         [_labelPhone addGestureRecognizer:tapGesture2];
     }
     
-    self.labelIntro.text = [_dictDetail valueForKey:@"desc"];
-    NSString *strEmailTmp = [_dictDetail valueForKey:@"email"];
+    self.labelIntro.text = [[_dictDetail valueForKey:@"desc"] isEqual:[NSNull null]]?@"":[_dictDetail valueForKey:@"desc"];
+    NSString *strEmailTmp = [[_dictDetail valueForKey:@"email"] isEqual:[NSNull null]]?@"":[_dictDetail valueForKey:@"email"];
     BOOL bEmail = [UtilityHelper isValidateEmail:strEmailTmp];
     if (!bEmail) {
         self.labelEmail.text = @"";
