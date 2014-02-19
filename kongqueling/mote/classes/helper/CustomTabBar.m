@@ -31,6 +31,9 @@
 
 - (UIView*) customTabBarViewWithItems:(NSArray *) arrayViewControllers selecedIndex: (NSInteger)indexSelected andDelegate: (id<CustomTabBarDelegate>) theDelegate
 {
+    m_arrayBages = [[NSMutableArray alloc] initWithObjects: nil];
+
+    
     UIView *viewTabBar = [[UIView alloc] initWithFrame: CGRectMake(0, -2, 320, 51)];
     
     self.delegate = theDelegate;
@@ -67,8 +70,14 @@
         
         [viewTabBar addSubview: button];
         [m_arrayButtons addObject: button];
-        
+
         horizontalOffset = horizontalOffset + width;
+        
+        UIImageView* badge = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalOffset-13, 3, 10, 10)];
+        badge.image = [UIImage imageNamed:@"badge.png"];
+        badge.hidden = YES;
+        [viewTabBar addSubview: badge];
+        [m_arrayBages addObject: badge];
     }
     
     return viewTabBar;
@@ -159,11 +168,20 @@
         buttonBarItem.selected = YES;
         [UIView commitAnimations];
     }
+    
+    UIImageView *imgv = [m_arrayBages objectAtIndex:index];
+    imgv.hidden = YES;
 }
 
 - (void)setImageSelectedArray:(NSArray *)imageArray
 {
     m_arrayImageSelected = imageArray;
+}
+
+- (void)setBadgeNumer:(int)index number:(int)numer
+{
+    UIImageView *imgv = [m_arrayBages objectAtIndex:index];
+    imgv.hidden = NO;
 }
 
 @end

@@ -97,4 +97,6 @@
 
 +(NSString *)stringUrlCheckUid:(NSString *)uid;
 
++(NSString *)stringUrlCheckUMsg:(NSString *)uid;
+
 @end

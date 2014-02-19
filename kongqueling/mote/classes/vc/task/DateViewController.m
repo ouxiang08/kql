@@ -185,7 +185,7 @@
                 [self updateDateChangedArray:button.tag strStatus:@"0"];
             }
         }else{
-            [[ToastViewAlert defaultCenter] postAlertWithMessage:@"无法支持编辑今天以前的档期！"];
+            [[ToastViewAlert defaultCenter] postAlertWithMessage:@"无法编辑以前的档期！"];
         }
     }
     

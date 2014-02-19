@@ -70,13 +70,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)clickLogin:(id)sender {    
+- (IBAction)clickLogin:(id)sender {
+    NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+    [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = navBarTextAttributes;
+    
     RSViewController *rVC = [[RSViewController alloc] init];
     //HeadViewController *rVC = [[HeadViewController alloc] init];
     [self.navigationController pushViewController:rVC animated:YES];    
 }
 
 - (IBAction)clickReg:(id)sender {
+    NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+    [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = navBarTextAttributes;
+    
     RegisterViewController *rVC = [[RegisterViewController alloc] init];
     [self.navigationController pushViewController:rVC animated:YES];
 }

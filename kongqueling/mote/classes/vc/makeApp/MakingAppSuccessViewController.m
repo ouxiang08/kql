@@ -56,8 +56,8 @@
 }
 
 - (IBAction)clickInstall:(id)sender {
-     [[ToastViewAlert defaultCenter] postAlertWithMessage:@"已加入下载序列，请留意下载完毕后的提示！"];
-    
+    [[ToastViewAlert defaultCenter] setTime:5];
+     [[ToastViewAlert defaultCenter] postAlertWithMessage:@"正在下载，请耐心等候！"];
     NSURL *url=[NSURL URLWithString:_iosDownloadUrl];
     [[UIApplication sharedApplication] openURL:url];
 }

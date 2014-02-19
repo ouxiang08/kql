@@ -94,7 +94,7 @@
     int otheruid = [[[MainModel sharedObject].dictUserInfo valueForKey:@"otheruid"] intValue];
     
     if (otheruid>0 && (selectedIndex==1||selectedIndex==2)) {
-        [[ToastViewAlert defaultCenter] postAlertWithMessage:@"对不起，您没有改模块的权限"];
+        [[ToastViewAlert defaultCenter] postAlertWithMessage:@"对不起，您没有该模块的权限"];
     }else{
         [super setSelectedIndex:selectedIndex];
        // [self updateNavigationItem];
@@ -109,6 +109,10 @@
     self.selectedIndex = itemIndex;
 	
     [self setSelectedViewController: viewController];
+}
+
+- (void) setBadgeNumer:(int)index number:(int)numer{
+    [self.customTabBar setBadgeNumer:index number:numer];
 }
 
 @end

@@ -29,9 +29,13 @@
     [super viewDidLoad];
     
     self.title = @"我的消息";
-    self.view.backgroundColor=[UIColor whiteColor];
-    _catTableview.backgroundColor = [UIColor whiteColor];
-    _catTableview.frame = CGRectMake(0, 0, 320, 200);
+    self.view.backgroundColor=MOKA_VIEW_BG_COLOR_BLUE;
+    _catTableview.backgroundColor = MOKA_VIEW_BG_COLOR_BLUE;
+
+    //_catTableview.backgroundColor = [UIColor whiteColor];
+//    CGRect tbrect = _catTableview.frame;
+//    tbrect.size.height = 44*3;
+//    _catTableview.frame = tbrect;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -63,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:areasCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:areasCellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         UILabel *labelName = [[UILabel alloc] init];
         labelName.font = [UIFont systemFontOfSize:17];
@@ -102,18 +106,27 @@
     return UITableViewCellAccessoryDisclosureIndicator;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
     MessageListViewController *mslvc = [[MessageListViewController alloc] initWithNibName:@"MessageListViewController" bundle:nil];
     mslvc.msgTypeId = indexPath.row+1;
     [self.navigationController pushViewController:mslvc animated:YES];
        
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+    // If you are not using ARC:
+    // return [[UIView new] autorelease];
 }
 
 

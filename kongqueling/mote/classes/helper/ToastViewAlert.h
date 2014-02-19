@@ -26,10 +26,11 @@
 	BOOL _active;
 	ToastView *_alertView;
 	CGRect _alertFrame;
+    float _alertTime;
 }
 
 + (ToastViewAlert*) defaultCenter;
-
+- (void) setTime:(float)time;
 - (void) postAlertWithMessage:(NSString*)message image:(UIImage*)image;
 - (void) postAlertWithMessage:(NSString *)message;
 

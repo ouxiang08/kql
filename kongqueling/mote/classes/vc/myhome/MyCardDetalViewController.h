@@ -11,5 +11,6 @@
 @interface MyCardDetalViewController : MokaNetworkController<UIActionSheetDelegate>
 @property(nonatomic, strong) NSDictionary *cardInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewMoka;
+@property (weak, nonatomic) IBOutlet UIImageView *imgv;
 
 @end

@@ -252,4 +252,10 @@
     strURL = [self addCommonParameter:strURL];
     return strURL;
 }
+
++(NSString *)stringUrlCheckUMsg:(NSString *)uid{
+    NSString *strURL = [NSString stringWithFormat:@"%@/getusermsg?",KHomeUrlDefault];
+    strURL = [self addCommonParameter:strURL];
+    return strURL;
+}
 @end

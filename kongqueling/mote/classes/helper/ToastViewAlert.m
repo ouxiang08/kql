@@ -122,7 +122,7 @@
 	_alerts = [[NSMutableArray alloc] init];
 	_alertView = [[ToastView alloc] init];
 	_active = NO;
-	
+	_alertTime = 0.5;
 	
 	_alertFrame = [UIApplication sharedApplication].keyWindow.bounds;
     
@@ -132,6 +132,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationWillChange:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
     
 	return self;
+}
+
+- (void) setTime:(float)time;{
+    _alertTime = time;
 }
 
 
@@ -197,7 +201,7 @@
 	// change the animation duration accordingly
 	// avg person reads 200 words per minute
 	NSArray * words = [[[_alerts objectAtIndex:0] objectAtIndex:0] componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-	double duration = MAX(((double)[words count]*60.0/200.0),0.5);
+	double duration = MAX(((double)[words count]*60.0/200.0),_alertTime);
 	
 	[UIView setAnimationDelay:duration];
 	[UIView setAnimationDelegate:self];
@@ -213,6 +217,8 @@
 	
 	_alertView.alpha = 0;
 	[UIView commitAnimations];
+    
+    _alertTime = 0.5;
 }
 - (void) animationStep3{
 	

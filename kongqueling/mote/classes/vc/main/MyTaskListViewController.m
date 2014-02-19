@@ -155,6 +155,13 @@
      [self.navigationController pushViewController:taskVC animated:YES];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [UIView new];
+    // If you are not using ARC:
+    // return [[UIView new] autorelease];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

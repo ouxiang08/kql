@@ -22,7 +22,7 @@
     
     NSArray *m_arrayImageSelected;
     NSArray *m_arrayViewControllers;
-    
+    NSMutableArray *m_arrayBages;
 @public
     NSMutableArray *m_arrayButtons;
     
@@ -33,7 +33,7 @@
 
 - (void) selectTabBarItem: (int) index;
 - (void) setImageSelectedArray:(NSArray *)imageArray;
-
+- (void) setBadgeNumer:(int)index number:(int)numer;
 - (UIView*) customTabBarViewWithItems:(NSArray *) arrayViewControllers selecedIndex: (NSInteger)indexSelected andDelegate: (id<CustomTabBarDelegate>) theDelegate;
 
 - (void) didSelectViewController: (UIViewController *) viewController;

@@ -11,5 +11,5 @@
 @interface MokaTabBarViewController : UITabBarController
 
 - (void)touchDownAtItemAtIndex:(NSUInteger)itemIndex;
-
+- (void) setBadgeNumer:(int)index number:(int)numer;
 @end

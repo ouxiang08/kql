@@ -52,6 +52,9 @@ static UIView* viewShare;
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeAlert| UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
+    [application setApplicationIconBadgeNumber:0];
+
+    
     self.mokaTabBar = [[MokaTabBarViewController alloc] init];
     self.nav = [[WCCNavigationController alloc] initWithRootViewController:self.mokaTabBar];
     self.window.rootViewController = self.nav;
@@ -60,6 +63,8 @@ static UIView* viewShare;
     NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
     [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     self.nav.navigationBar.titleTextAttributes = navBarTextAttributes;
+    
+
     
     
     if (![MainModel sharedObject].strUid) {
@@ -80,6 +85,14 @@ static UIView* viewShare;
         if ([uid isEqualToString:@"1"]) {
             [self.mokaTabBar touchDownAtItemAtIndex:1];
             [self.mokaTabBar touchDownAtItemAtIndex:0];
+            
+            NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+            NSURL *query2 = [NSURL URLWithString:strUrl2];
+            NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+            NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+            if ([[msgarr objectAtIndex:2] intValue]>0) {
+                [self.mokaTabBar setBadgeNumer:3 number:[[msgarr objectAtIndex:2] intValue]];
+            }
         }else{
             StartPageViewController *rsVC = [[StartPageViewController alloc] init];
             //LoginViewController *loginVC = [[LoginViewController alloc] init];
@@ -108,7 +121,7 @@ static UIView* viewShare;
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    // NSLog(@"test:%@",deviceToken);
+     NSLog(@"test:%@",deviceToken);
     [BPush registerDeviceToken: deviceToken];
     [BPush bindChannel];
 //    self.viewController.textView.text = [self.viewController.textView.text stringByAppendingFormat: @"Register device token: %@\n", deviceToken];

@@ -251,7 +251,7 @@
 
 - (void)selectPic:(UIImage*)image
 {
-    UIImage *resizeImg = [[image fixOrientation] scaleToFixedSize:CGSizeMake(300,300)];
+    UIImage *resizeImg = [[image fixOrientation] scaleToFixedSize:CGSizeMake(200,200)];
     UpYun *uy = [[UpYun alloc] init];
     uy.successBlocker = ^(id data)
     {
@@ -260,6 +260,7 @@
     };
     uy.failBlocker = ^(NSError * error)
     {
+        [[ToastViewAlert defaultCenter] postAlertWithMessage:@"更新头像！"];
         [_mokaIndicator stop];
     };
     [uy uploadFile:resizeImg saveKey:[self getSaveKey]];

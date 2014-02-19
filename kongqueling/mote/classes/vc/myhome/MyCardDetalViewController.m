@@ -31,6 +31,10 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"模卡";
     
+    CGRect frame = _imgv.frame;
+    frame.size.height = MOKA_SCREEN_HEIGHT;
+    _imgv.frame = frame;
+    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItemFactory getBarButtonItemWithImage:@"moka_picture_edit" selector:@selector(onEditPicture) target:self];
     [self initMokaResult];
 }
@@ -106,13 +110,15 @@
     NSString *strUrl = [NSString stringWithFormat:@"%@%@",KImageUrlDefault,[_cardInfo valueForKey:@"imgpath"]];
     [_imageViewMoka setImageWithURL:[NSURL URLWithString:strUrl] placeholderImage:[UIImage imageNamed:@"no_image"]];
     
-    //CGFloat width = _imageViewMoka.size.width;
-    CGFloat width = 233;
-    CGFloat height = 320;
-    CGFloat originX = (self.view.frame.size.width - width) /2;
-    CGFloat originY = (self.view.frame.size.height - height) /2;
     
-    _imageViewMoka.frame = CGRectMake(originX, originY, width, height);
+    
+    //CGFloat width = _imageViewMoka.size.width;
+//    CGFloat width = 233;
+//    CGFloat height = 320;
+//    CGFloat originX = (self.view.frame.size.width - width) /2;
+//    CGFloat originY = (self.view.frame.size.height - height) /2;
+//    
+//    _imageViewMoka.frame = CGRectMake(originX, originY, width, height);
 }
 
 - (void)didReceiveMemoryWarning

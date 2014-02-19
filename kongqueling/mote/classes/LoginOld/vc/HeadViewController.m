@@ -11,6 +11,7 @@
 
 @interface HeadViewController (){
     MokaIndicatorView *_mokaIndicator;
+    UIButton *upyunbtn;
 }
 
 @end
@@ -72,7 +73,7 @@
     [headbtn addTarget:self action:@selector(openThePhotoAndCamera) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:headbtn];
     
-    UIButton *upyunbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    upyunbtn=[UIButton buttonWithType:UIButtonTypeCustom];
     upyunbtn.frame=CGRectMake(45,240, 230, 38);
     [upyunbtn setBackgroundImage:[UIImage imageNamed:@"7777777_13.png"] forState:UIControlStateNormal];
     [upyunbtn addTarget:self action:@selector(updateTheHeadImageToUpYun) forControlEvents:UIControlEventTouchUpInside];
@@ -278,6 +279,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info {
     // 得到图片
+    [upyunbtn setBackgroundImage:[UIImage imageNamed:@"7777777_13_orange.png"] forState:UIControlStateNormal];
+
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     [NSThread detachNewThreadSelector:@selector(ProssImg:) toTarget:self withObject:image];

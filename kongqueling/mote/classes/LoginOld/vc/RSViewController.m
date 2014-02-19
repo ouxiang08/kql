@@ -74,7 +74,7 @@
     [self.passText setSecureTextEntry:YES];
     [self.view addSubview:self.passText];
     
-    //[self.userText becomeFirstResponder];
+    [self.userText becomeFirstResponder];
     //[self.passText becomeFirstResponder];
 
     
