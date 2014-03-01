@@ -34,7 +34,13 @@
     m_arrayBages = [[NSMutableArray alloc] initWithObjects: nil];
 
     
+    /*----------------------------------------jiajingjing--------------------------------------------*/
     UIView *viewTabBar = [[UIView alloc] initWithFrame: CGRectMake(0, -2, 320, 51)];
+    UIImage *image = [UIImage imageNamed:@"tabbar_background"];
+    image = [image stretchableImageWithLeftCapWidth:image.leftCapWidth topCapHeight:image.topCapHeight];
+    UIImageView *tabbarGroundImage = [[UIImageView alloc] initWithImage:image];
+    tabbarGroundImage.frame = viewTabBar.bounds;
+    [viewTabBar addSubview:tabbarGroundImage];
     
     self.delegate = theDelegate;
     

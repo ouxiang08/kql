@@ -576,6 +576,8 @@
 		4ACC7A861872402700756F46 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC7A821872402700756F46 /* delete@2x.png */; };
 		4ACC7A871872402700756F46 /* complete.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC7A831872402700756F46 /* complete.png */; };
 		4ACC7A881872402700756F46 /* complete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC7A841872402700756F46 /* complete@2x.png */; };
+		8246125318C1CD8F00367E76 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125118C1CD8F00367E76 /* tabbar_background.png */; };
+		8246125418C1CD8F00367E76 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125218C1CD8F00367E76 /* tabbar_background@2x.png */; };
 		B96D6F32186C674600F3AB0F /* SendInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */; };
 		B96D6F33186C674600F3AB0F /* SendInvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */; };
 		B96D6F37186C677100F3AB0F /* ModelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F35186C677100F3AB0F /* ModelDetailViewController.m */; };
@@ -1352,6 +1354,8 @@
 		4ACC7A821872402700756F46 /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
 		4ACC7A831872402700756F46 /* complete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complete.png; sourceTree = "<group>"; };
 		4ACC7A841872402700756F46 /* complete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "complete@2x.png"; sourceTree = "<group>"; };
+		8246125118C1CD8F00367E76 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
+		8246125218C1CD8F00367E76 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
 		B96D6F2F186C674600F3AB0F /* SendInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvitationViewController.h; sourceTree = "<group>"; };
 		B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvitationViewController.m; sourceTree = "<group>"; };
 		B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendInvitationViewController.xib; sourceTree = "<group>"; };
@@ -2374,6 +2378,8 @@
 		14C669F1182E1A78003B5504 /* sys */ = {
 			isa = PBXGroup;
 			children = (
+				8246125118C1CD8F00367E76 /* tabbar_background.png */,
+				8246125218C1CD8F00367E76 /* tabbar_background@2x.png */,
 				4A6B5E0518780D46005A127C /* kql_code.png */,
 				4A6B5E01187801FC005A127C /* no_header.jpeg */,
 				4A6B5E02187801FC005A127C /* no_header@2x.jpeg */,
@@ -2841,6 +2847,7 @@
 				142933691840416C0010C2FF /* choosing_picture_add_bg.png in Resources */,
 				1429336A1840416C0010C2FF /* choosing_picture_add_bg@2x.png in Resources */,
 				1429336D18404F740010C2FF /* choosing_picture_album_button_bg.png in Resources */,
+				8246125418C1CD8F00367E76 /* tabbar_background@2x.png in Resources */,
 				1429336E18404F740010C2FF /* choosing_picture_album_button_bg@2x.png in Resources */,
 				142933711840515A0010C2FF /* choosing_picutre_top_cell_bg.png in Resources */,
 				142933721840515A0010C2FF /* choosing_picutre_top_cell_bg@2x.png in Resources */,
@@ -3128,6 +3135,7 @@
 				14303E611891411E0098D15E /* task_detail_cai_btn@2x.png in Resources */,
 				1405597118AB251F00F356AD /* WeiboSDK.bundle in Resources */,
 				14303E621891411E0098D15E /* task_detail_zan_btn.png in Resources */,
+				8246125318C1CD8F00367E76 /* tabbar_background.png in Resources */,
 				14303E631891411E0098D15E /* task_detail_zan_btn@2x.png in Resources */,
 				14303E6D189143740098D15E /* task_detail_head_logo.png in Resources */,
 				14303E6E189143740098D15E /* task_detail_head_logo@2x.png in Resources */,
@@ -3417,12 +3425,20 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Connection,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Core,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Core,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Connection,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Core,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/GooglePlusSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/Pinterest.embeddedframework,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/QQConnectSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/RenRenSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/UI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mote/mote-Prefix.pch";
@@ -3430,11 +3446,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
-					"/Users/harry/kql/kongqueling/lib/ios_api/Release-iphoneos",
-					/Users/harry/kql/kongqueling/lib/Baidu_Push,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
+					"/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ios_api/Release-iphoneos",
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/Baidu_Push,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/SinaWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/TencentWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/WeChatSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/YiXinSDK,
 				);
 				PRODUCT_NAME = "孔雀翎";
 				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
@@ -3450,12 +3470,20 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Connection,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Core,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Core,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/QQConnectSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/RenRenSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/UI,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Connection,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Core,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/GooglePlusSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/Pinterest.embeddedframework,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/QQConnectSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/RenRenSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/UI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mote/mote-Prefix.pch";
@@ -3463,11 +3491,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
-					/Users/harry/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
-					"/Users/harry/kql/kongqueling/lib/ios_api/Release-iphoneos",
-					/Users/harry/kql/kongqueling/lib/Baidu_Push,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/SinaWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/TencentWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Extend/WeChatSDK,
+					"/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ios_api/Release-iphoneos",
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/Baidu_Push,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/SinaWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/TencentWeiboSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/WeChatSDK,
+					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/YiXinSDK,
 				);
 				PRODUCT_NAME = "孔雀翎";
 				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
