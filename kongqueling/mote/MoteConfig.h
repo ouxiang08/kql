@@ -62,7 +62,7 @@
 #define KTestAccountId @"developer@tupai.cc"
 #define KTestAccountPwd @"tupai2013"
 
-
+#define kMessageDidChangeNofication @"kMessageDidChangeNofication"
 
 @interface MoteConfig : NSObject 
 

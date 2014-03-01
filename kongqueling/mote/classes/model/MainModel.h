@@ -20,6 +20,7 @@
 #define KDictUserInfo @"userdicttype"
 #define KPriceInfo @"priceinfo"
 #define KAlbumId @"aid"
+#define KMsgNum @"msgNum"
 #define KLocation @"cllocation"
 #define KCity @"city"
 #import "AppDelegate.h"
@@ -58,6 +59,9 @@
 - (void) saveCity: (NSString *)strCity;
 - (void) saveBDUid: (NSString *)strBDUid;
 - (void) saveBDChannelId: (NSString *)strBDChannelId;
+
+- (void)saveMsgNum:(NSString *)firstNum secondNum:(NSString *)secondNum thirdNum:(NSString *)thirdNum;
+- (NSString *)getNumByIndex:(int)index;
 
 - (void) startPosition;
 

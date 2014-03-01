@@ -161,4 +161,17 @@ static MainModel *sharedListInstance = nil;
 }
 
 
+-(void)saveMsgNum:(NSString *)firstNum secondNum:(NSString *)secondNum thirdNum:(NSString *)thirdNum{
+    int totalNum = [firstNum intValue] + [secondNum intValue] + [thirdNum intValue];
+    NSArray *array = [NSArray arrayWithObjects:firstNum,secondNum,thirdNum,[NSString stringWithFormat:@"%d",totalNum], nil];
+    [[NSUserDefaults standardUserDefaults] setObject: array  forKey:KMsgNum];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSString *)getNumByIndex:(int)index{
+
+    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:KMsgNum];
+    return [array objectAtIndex:index];
+}
+
 @end

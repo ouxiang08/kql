@@ -10,7 +10,6 @@
 #import "MessageListViewController.h"
 
 @interface MessageCatViewController ()
-
 @end
 
 @implementation MessageCatViewController
@@ -75,25 +74,44 @@
         labelName.frame = CGRectMake(17, 12, 200, 20);
         labelName.textAlignment = NSTextAlignmentLeft;
         [cell.contentView addSubview:labelName];
+
+        /*----------------------------------------jiajingjing--------------------------------------------*/
+        UIImageView* badgeView = [[UIImageView alloc] initWithFrame:CGRectMake(320-80, 12, 20, 20)];
+        badgeView.image = [UIImage imageNamed:@"badge.png"];
+        UILabel *badgeLabel = [[UILabel alloc]initWithFrame:badgeView.bounds];
+        badgeLabel.textAlignment = NSTextAlignmentCenter;
+        badgeLabel.backgroundColor = [UIColor clearColor];
+        badgeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+        badgeLabel.textColor = [UIColor whiteColor];
+        badgeView.tag = 2001;
+        badgeView.hidden = YES;
+        [badgeView addSubview:badgeLabel];
+        [cell.contentView addSubview:badgeView];
+    }
+
+    UILabel *nameLabel = (UILabel *)[cell.contentView subviews][0];
+    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:2001];
+    UILabel *msgLabel = (UILabel *)[imageView subviews][0];
+    
+    int num = [[[MainModel sharedObject] getNumByIndex:indexPath.row] intValue];
+    if (num>0) {
+        msgLabel.text = [NSString stringWithFormat:@"%d",num];
+        imageView.hidden = NO;
     }
     
-    UILabel *nameLabel = (UILabel *)[cell.contentView subviews][0];
-        
-            
-        switch (indexPath.row) {
-            case 0:
-                nameLabel.text = @"系统消息";
-                break;
-            case 1:
-                nameLabel.text = @"任务消息";
-                break;
-            case 2:
-                nameLabel.text = @"邀约消息";
-                break;
-                        default:
-                break;
-        }
-         
+    switch (indexPath.row) {
+        case 0:
+            nameLabel.text = @"系统消息";
+            break;
+        case 1:
+            nameLabel.text = @"任务消息";
+            break;
+        case 2:
+            nameLabel.text = @"邀约消息";
+            break;
+        default:
+            break;
+    }
     
     
 	return cell;
@@ -119,7 +137,31 @@
     MessageListViewController *mslvc = [[MessageListViewController alloc] initWithNibName:@"MessageListViewController" bundle:nil];
     mslvc.msgTypeId = indexPath.row+1;
     [self.navigationController pushViewController:mslvc animated:YES];
-       
+    
+    
+    /*----------------------------------------jiajingjing--------------------------------------------*/
+    NSString *firstNum = [[MainModel sharedObject] getNumByIndex:0];
+    NSString *secondNum = [[MainModel sharedObject] getNumByIndex:1];
+    NSString *thirdNum =  [[MainModel sharedObject] getNumByIndex:2];
+    switch (indexPath.row) {
+        case 0:
+            [[MainModel sharedObject] saveMsgNum:@"0" secondNum:secondNum thirdNum:thirdNum];
+            break;
+        case 1:
+            [[MainModel sharedObject] saveMsgNum:firstNum secondNum:@"0" thirdNum:thirdNum];
+            break;
+        case 2:
+            [[MainModel sharedObject] saveMsgNum:firstNum secondNum:secondNum thirdNum:@"0"];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kMessageDidChangeNofication object:nil];
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section

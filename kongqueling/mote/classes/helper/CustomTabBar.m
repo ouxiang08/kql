@@ -20,6 +20,8 @@
     if ( self ) {
         m_arrayImageSelected = [[NSArray alloc] init];
         m_arrayButtons = [NSMutableArray arrayWithCapacity: 10];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgNumChange) name:kMessageDidChangeNofication object:nil];
     }
     return self;
 }
@@ -79,7 +81,7 @@
 
         horizontalOffset = horizontalOffset + width;
         
-        UIImageView* badge = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalOffset-13, 3, 10, 10)];
+        UIImageView* badge = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalOffset-30, 3, 20, 20)];
         badge.image = [UIImage imageNamed:@"badge.png"];
         badge.hidden = YES;
         [viewTabBar addSubview: badge];
@@ -174,9 +176,15 @@
         buttonBarItem.selected = YES;
         [UIView commitAnimations];
     }
-    
+    /*------------------------------------------jiajingjing--------------------------------------------------*/
     UIImageView *imgv = [m_arrayBages objectAtIndex:index];
-    imgv.hidden = YES;
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] integerValue];
+    if (index==3&&totalNum>0) {
+        imgv.hidden = NO;
+    }else{
+        imgv.hidden = YES;
+
+    }
 }
 
 - (void)setImageSelectedArray:(NSArray *)imageArray
@@ -186,8 +194,39 @@
 
 - (void)setBadgeNumer:(int)index number:(int)numer
 {
+    /*------------------------------------------jiajingjing--------------------------------------------------*/
     UIImageView *imgv = [m_arrayBages objectAtIndex:index];
-    imgv.hidden = NO;
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] integerValue];
+    if (totalNum>0) {
+        UILabel *badgeLabel = [[UILabel alloc]initWithFrame:imgv.bounds];
+        badgeLabel.textAlignment = NSTextAlignmentCenter;
+        badgeLabel.backgroundColor = [UIColor clearColor];
+        badgeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+        badgeLabel.textColor = [UIColor whiteColor];
+        badgeLabel.text = [NSString stringWithFormat:@"%d",totalNum];
+        [imgv addSubview:badgeLabel];
+        badgeLabel.text = [NSString stringWithFormat:@"%d",totalNum];
+        imgv.hidden = NO;
+    }else{
+        imgv.hidden = YES;
+    }
 }
+
+- (void)msgNumChange{
+    
+    NSLog(@"msgNmuChange");
+    /*------------------------------------------jiajingjing--------------------------------------------------*/
+    UIImageView *imgv = [m_arrayBages objectAtIndex:3];
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] integerValue];
+    UILabel *badgeLabel = (UILabel *)[imgv subviews][0];
+    if (totalNum>0) {
+        badgeLabel.text = [NSString stringWithFormat:@"%d",totalNum];
+        imgv.hidden = NO;
+    }else{
+    
+        imgv.hidden = YES;
+    }
+}
+
 
 @end

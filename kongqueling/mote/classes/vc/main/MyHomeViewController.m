@@ -33,6 +33,8 @@
         // Custom initialization
         self.title = @"个人中心";
 		self.tabBarItem.image = [UIImage imageNamed:@"moka_tabbar_home_normal_bg"];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgNumChange) name:kMessageDidChangeNofication object:nil];
+
     }
     return self;
 }
@@ -62,7 +64,26 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
+        /*---------------------------------------jiajingjing-----------------------------------------------*/
+        UIImageView* badgeView = [[UIImageView alloc] initWithFrame:CGRectMake(320-80, 12, 20, 20)];
+        badgeView.image = [UIImage imageNamed:@"badge.png"];
+        UILabel *badgeLabel = [[UILabel alloc]initWithFrame:badgeView.bounds];
+        badgeLabel.textAlignment = NSTextAlignmentCenter;
+        badgeLabel.backgroundColor = [UIColor clearColor];
+        badgeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
+        badgeLabel.textColor = [UIColor whiteColor];
+        int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+        [badgeView addSubview:badgeLabel];
+        badgeView.hidden = YES;
+        badgeView.tag = 2002;
+        [self.tableViewCellMessage addSubview:badgeView];
+        if (totalNum>0) {
+            badgeLabel.text = [[MainModel sharedObject] getNumByIndex:3];
+            UIImageView *image = (UIImageView *)[self.tableViewCellMessage viewWithTag:2002];
+            image.hidden = NO;
+        }
         return self.tableViewCellMessage;
+        
     }else if(indexPath.row == 1){
         return self.tableViewCellApp;
     }else if(indexPath.row == 2){
@@ -184,4 +205,19 @@
     personal.delegate = self;
     [self.navigationController pushViewController:personal animated:YES];
 }
+
+- (void)msgNumChange{
+
+    NSLog(@"msgNmuChange");
+    UIImageView *image = (UIImageView *)[self.tableViewCellMessage viewWithTag:2002];
+    UILabel *badgeLabel = (UILabel *)[image subviews][0];
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+    if (totalNum>0) {
+        badgeLabel.text = [[MainModel sharedObject] getNumByIndex:3];
+        image.hidden = NO;
+    }else{
+        image.hidden = YES;
+    }
+}
+
 @end
