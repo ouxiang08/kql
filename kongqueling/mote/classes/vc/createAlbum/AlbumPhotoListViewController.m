@@ -10,6 +10,7 @@
 #import "AlbumPhotoCell.h"
 #import "AlbumPhotoListViewController.h"
 #import "AlbumPhotoViewController.h"
+#import "AlbumPhotoViewController1.h"
 #import "UIBarButtonItemFactory.h"
 #import "ChoosingPicturesViewController.h"
 #import "CreateAlbumViewController.h"
@@ -277,7 +278,8 @@
                 [_arrSelectedPicture addObject:[NSString stringWithFormat:@"%d",index]];
             }
         }else{
-            AlbumPhotoViewController *photoVC = [[AlbumPhotoViewController alloc] init];
+            //AlbumPhotoViewController *photoVC = [[AlbumPhotoViewController alloc] init];
+            AlbumPhotoViewController1 *photoVC = [[AlbumPhotoViewController1 alloc] init];
             photoVC.albumModel = self.model;
             photoVC.delegate = self;
 			photoVC.arrPhoto = _arrPhoto;

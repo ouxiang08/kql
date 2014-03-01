@@ -582,6 +582,7 @@
 		8246126718C1D17A00367E76 /* DateEditViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8246126518C1D17A00367E76 /* DateEditViewController1.xib */; };
 		8246126B18C1D1AA00367E76 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8246126918C1D1AA00367E76 /* DateViewController.m */; };
 		8246126C18C1D1AA00367E76 /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8246126A18C1D1AA00367E76 /* DateViewController.xib */; };
+		8246126F18C1D49D00367E76 /* AlbumPhotoViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8246126E18C1D49D00367E76 /* AlbumPhotoViewController1.m */; };
 		B96D6F32186C674600F3AB0F /* SendInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */; };
 		B96D6F33186C674600F3AB0F /* SendInvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */; };
 		B96D6F37186C677100F3AB0F /* ModelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F35186C677100F3AB0F /* ModelDetailViewController.m */; };
@@ -1365,6 +1366,8 @@
 		8246126818C1D1AA00367E76 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
 		8246126918C1D1AA00367E76 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
 		8246126A18C1D1AA00367E76 /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
+		8246126D18C1D49D00367E76 /* AlbumPhotoViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPhotoViewController1.h; sourceTree = "<group>"; };
+		8246126E18C1D49D00367E76 /* AlbumPhotoViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPhotoViewController1.m; sourceTree = "<group>"; };
 		B96D6F2F186C674600F3AB0F /* SendInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvitationViewController.h; sourceTree = "<group>"; };
 		B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvitationViewController.m; sourceTree = "<group>"; };
 		B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendInvitationViewController.xib; sourceTree = "<group>"; };
@@ -2541,6 +2544,8 @@
 				14B74D51184CBF9E00A067A3 /* AlbumPhotoViewController.h */,
 				14B74D52184CBF9E00A067A3 /* AlbumPhotoViewController.m */,
 				14B74D53184CBF9E00A067A3 /* AlbumPhotoViewController.xib */,
+				8246126D18C1D49D00367E76 /* AlbumPhotoViewController1.h */,
+				8246126E18C1D49D00367E76 /* AlbumPhotoViewController1.m */,
 				4A337F9A186DD43600FBC4A8 /* PrepareUploadPhotoViewController.h */,
 				4A337F9B186DD43700FBC4A8 /* PrepareUploadPhotoViewController.m */,
 				4A337F9C186DD43900FBC4A8 /* PrepareUploadPhotoViewController.xib */,
@@ -3347,6 +3352,7 @@
 				4A9204991890926200E8EB8F /* MyCardDetalViewController.m in Sources */,
 				14303E5A18913F400098D15E /* TaskDetailViewController.m in Sources */,
 				14AE08DD1895193B0033B394 /* AreaViewController.m in Sources */,
+				8246126F18C1D49D00367E76 /* AlbumPhotoViewController1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
