@@ -1,14 +1,14 @@
 //
-//  DateViewController.m
+//  DateEditViewController1.m
 //  mote
 //
-//  Created by sean on 12/27/13.
-//  Copyright (c) 2013 zlm. All rights reserved.
+//  Created by 贾程阳 on 28/2/14.
+//  Copyright (c) 2014年 zlm. All rights reserved.
 //
 
-#import "DateViewController.h"
+#import "DateEditViewController1.h"
 
-@interface DateViewController (){
+@interface DateEditViewController1 (){
     NSString *_strToday;
     NSString *_strThisMonth;
     NSMutableArray *_arrDateChangedList;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation DateViewController
+@implementation DateEditViewController1
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +33,7 @@
         // Custom initialization
     }
     
-    self.bIsBtnClicked = NO;
+    self.bIsBtnClicked = YES;
     self.bIsBtnTaskDateClicked = NO;
     _arrCheck = [[NSMutableArray alloc] init];
     _arrDateChangedList = [[NSMutableArray alloc] init];
@@ -46,15 +46,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (!self.currentDate) {
-        [self initTodayStr];
-    }
+    //[self initTodayStr];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItemFactory getBarButtonItemWithImage:@"choosing_moka_picture_cancel_bg" selector:@selector(onCancel) target:self];
+
     
-    UIImage *image = [UIImage imageNamed:@"task_date_bg"];
-    self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-    self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+    NSCalendar*calendar = [NSCalendar currentCalendar];
+    NSDateComponents *comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:[NSDate date]];
+    _strToday = [NSString stringWithFormat:@"%d年%d月%d日",comps.year,comps.month,comps.day];
     
+    //[self getTaskListByMonth:[NSDate date]];
     [self getTaskListByMonth:self.currentDate];
+}
+
+- (id) initWithDate: (NSDate *)date
+{
+    self = [super init];
+	if (self != nil)
+    {
+		self.currentDate = date;
+	}
+	
+	return self;
+	
 }
 
 -(void)saveDate{
@@ -91,6 +104,7 @@
 }
 
 -(void)getTaskListByMonth:(NSDate *)date{
+    
     NSCalendar*calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:date];
     
@@ -134,8 +148,6 @@
         NSDate *newDate =[self convertDateFromString:[NSString stringWithFormat:@"%d年%d月10日",_iYear,_iMonth]];
         [self getTaskListByMonth:newDate];
         [self updateBackToNowButton];
-        
-        self.currentDate = newDate;
     }
 }
 
@@ -153,8 +165,6 @@
         NSDate *newDate =[self convertDateFromString:[NSString stringWithFormat:@"%d年%d月10日",_iYear,_iMonth]];
         [self getTaskListByMonth:newDate];
         [self updateBackToNowButton];
-        
-        self.currentDate = newDate;
     }
     
 }
@@ -271,14 +281,11 @@
 }
 
 -(void)initTodayStr{
-    
     NSCalendar*calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:[NSDate date]];
     _strToday = [NSString stringWithFormat:@"%d年%d月%d日",comps.year,comps.month,comps.day];
     _strThisMonth = [NSString stringWithFormat:@"%d年%d月",comps.year,comps.month];
     self.buttonBackToNow.hidden = YES;
-
-    self.currentDate = [self convertDateFromString:_strToday];
 }
 
 -(void)initDateButtons:(NSDate *)date{
@@ -357,12 +364,11 @@
                 }
             }
             
-             [_arrCheck addObject:@"1"];
+            [_arrCheck addObject:@"1"];
         }else{
             [_arrCheck addObject:@"0"];
         }
         NSLog(@"iXOffset:%d",iXOffset);
-        
         _num = iYOffset;
         [self.viewDate addSubview:button];
         
@@ -386,12 +392,12 @@
     if (_lineNum==5) {
         UIImage *image = [UIImage imageNamed:@"task_date_bg_big"];
         self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
         _lineNum = 0;
     }else if (_lineNum==4){
         UIImage *image = [UIImage imageNamed:@"task_date_bg"];
         self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
         _lineNum = 0;
     }
 }
@@ -403,6 +409,20 @@
         }
     }
     return NO;
+}
+
+
+- (IBAction)onSaveDate:(id)sender {
+    
+    [self saveDate];
+}
+
+-(void)onCancel{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)setDateSuccess{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

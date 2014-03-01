@@ -7,6 +7,7 @@
 //
 
 #import "DateEditViewController.h"
+#import "DateEditViewController1.h"
 #import "MyTaskListViewController.h"
 #import "DateViewController.h"
 #import "MyTaskListTableViewCell.h"
@@ -22,6 +23,8 @@
 @end
 
 @implementation MyTaskListViewController
+
+@synthesize selectedDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +55,6 @@
      [self initDateView];
 }
 
-
 -(void)initDateView{
     if (!self.dateVC) {
         [self.dateVC removeFromParentViewController];
@@ -60,13 +62,25 @@
     self.dateVC = [[DateViewController alloc] init];
     self.dateVC.bIsBtnTaskDateClicked = YES;
     self.dateVC.delegate = self;
+    
+    if (self.selectedDate) {
+        self.dateVC.currentDate = self.selectedDate;
+    }
+    
     [self.view addSubview:self.dateVC.view];
+    
+    
 }
 
 -(void)onEditDate{
-    DateEditViewController *dateVC = [[DateEditViewController alloc] init];
+    
+    self.selectedDate = self.dateVC.currentDate;
+    
+    //DateEditViewController *dateVC = [[DateEditViewController alloc] init];
+    DateEditViewController1 *dateVC = [[DateEditViewController1 alloc] initWithDate:self.selectedDate];
     [self.navigationController pushViewController:dateVC animated:YES];
-}
+} 
+
 
 #pragma mark - date click delegate
 -(void)onClickDateWithArrTaskInfo:(NSArray *)arrTaskInfo{

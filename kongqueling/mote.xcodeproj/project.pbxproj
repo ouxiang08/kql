@@ -519,9 +519,7 @@
 		4A3292781873264400FF94BF /* home_regist_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3292611873264400FF94BF /* home_regist_button@2x.png */; };
 		4A3292871873264400FF94BF /* myhome_gender_male_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3292711873264400FF94BF /* myhome_gender_male_logo.png */; };
 		4A3292881873264400FF94BF /* myhome_gender_male_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3292721873264400FF94BF /* myhome_gender_male_logo@2x.png */; };
-		4A337F96186DC2AC00FBC4A8 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A337F90186DC2AC00FBC4A8 /* DateViewController.m */; };
 		4A337F97186DC2AC00FBC4A8 /* DateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A337F91186DC2AC00FBC4A8 /* DateEditViewController.m */; };
-		4A337F98186DC2AC00FBC4A8 /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A337F92186DC2AC00FBC4A8 /* DateViewController.xib */; };
 		4A337F99186DC2AC00FBC4A8 /* DateEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A337F94186DC2AC00FBC4A8 /* DateEditViewController.xib */; };
 		4A337F9D186DD43A00FBC4A8 /* PrepareUploadPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A337F9B186DD43700FBC4A8 /* PrepareUploadPhotoViewController.m */; };
 		4A337F9E186DD43A00FBC4A8 /* PrepareUploadPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A337F9C186DD43900FBC4A8 /* PrepareUploadPhotoViewController.xib */; };
@@ -578,6 +576,12 @@
 		4ACC7A881872402700756F46 /* complete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACC7A841872402700756F46 /* complete@2x.png */; };
 		8246125318C1CD8F00367E76 /* tabbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125118C1CD8F00367E76 /* tabbar_background.png */; };
 		8246125418C1CD8F00367E76 /* tabbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125218C1CD8F00367E76 /* tabbar_background@2x.png */; };
+		8246125718C1CF7A00367E76 /* task_date_bg_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125518C1CF7A00367E76 /* task_date_bg_big.png */; };
+		8246125818C1CF7A00367E76 /* task_date_bg_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8246125618C1CF7A00367E76 /* task_date_bg_big@2x.png */; };
+		8246126618C1D17A00367E76 /* DateEditViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8246126418C1D17A00367E76 /* DateEditViewController1.m */; };
+		8246126718C1D17A00367E76 /* DateEditViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8246126518C1D17A00367E76 /* DateEditViewController1.xib */; };
+		8246126B18C1D1AA00367E76 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8246126918C1D1AA00367E76 /* DateViewController.m */; };
+		8246126C18C1D1AA00367E76 /* DateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8246126A18C1D1AA00367E76 /* DateViewController.xib */; };
 		B96D6F32186C674600F3AB0F /* SendInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */; };
 		B96D6F33186C674600F3AB0F /* SendInvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */; };
 		B96D6F37186C677100F3AB0F /* ModelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F35186C677100F3AB0F /* ModelDetailViewController.m */; };
@@ -1272,12 +1276,9 @@
 		4A3292711873264400FF94BF /* myhome_gender_male_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myhome_gender_male_logo.png; sourceTree = "<group>"; };
 		4A3292721873264400FF94BF /* myhome_gender_male_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myhome_gender_male_logo@2x.png"; sourceTree = "<group>"; };
 		4A329289187334C500FF94BF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		4A337F90186DC2AC00FBC4A8 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
 		4A337F91186DC2AC00FBC4A8 /* DateEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateEditViewController.m; sourceTree = "<group>"; };
-		4A337F92186DC2AC00FBC4A8 /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
 		4A337F93186DC2AC00FBC4A8 /* DateEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateEditViewController.h; sourceTree = "<group>"; };
 		4A337F94186DC2AC00FBC4A8 /* DateEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateEditViewController.xib; sourceTree = "<group>"; };
-		4A337F95186DC2AC00FBC4A8 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
 		4A337F9A186DD43600FBC4A8 /* PrepareUploadPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareUploadPhotoViewController.h; sourceTree = "<group>"; };
 		4A337F9B186DD43700FBC4A8 /* PrepareUploadPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareUploadPhotoViewController.m; sourceTree = "<group>"; };
 		4A337F9C186DD43900FBC4A8 /* PrepareUploadPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrepareUploadPhotoViewController.xib; sourceTree = "<group>"; };
@@ -1356,6 +1357,14 @@
 		4ACC7A841872402700756F46 /* complete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "complete@2x.png"; sourceTree = "<group>"; };
 		8246125118C1CD8F00367E76 /* tabbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_background.png; sourceTree = "<group>"; };
 		8246125218C1CD8F00367E76 /* tabbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_background@2x.png"; sourceTree = "<group>"; };
+		8246125518C1CF7A00367E76 /* task_date_bg_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_date_bg_big.png; sourceTree = "<group>"; };
+		8246125618C1CF7A00367E76 /* task_date_bg_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "task_date_bg_big@2x.png"; sourceTree = "<group>"; };
+		8246126318C1D17A00367E76 /* DateEditViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateEditViewController1.h; sourceTree = "<group>"; };
+		8246126418C1D17A00367E76 /* DateEditViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateEditViewController1.m; sourceTree = "<group>"; };
+		8246126518C1D17A00367E76 /* DateEditViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateEditViewController1.xib; sourceTree = "<group>"; };
+		8246126818C1D1AA00367E76 /* DateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
+		8246126918C1D1AA00367E76 /* DateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		8246126A18C1D1AA00367E76 /* DateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateViewController.xib; sourceTree = "<group>"; };
 		B96D6F2F186C674600F3AB0F /* SendInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvitationViewController.h; sourceTree = "<group>"; };
 		B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvitationViewController.m; sourceTree = "<group>"; };
 		B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendInvitationViewController.xib; sourceTree = "<group>"; };
@@ -2124,12 +2133,15 @@
 		14A7CD95186AEC5400962AAA /* task */ = {
 			isa = PBXGroup;
 			children = (
-				4A337F95186DC2AC00FBC4A8 /* DateViewController.h */,
-				4A337F90186DC2AC00FBC4A8 /* DateViewController.m */,
-				4A337F92186DC2AC00FBC4A8 /* DateViewController.xib */,
+				8246126818C1D1AA00367E76 /* DateViewController.h */,
+				8246126918C1D1AA00367E76 /* DateViewController.m */,
+				8246126A18C1D1AA00367E76 /* DateViewController.xib */,
 				4A337F93186DC2AC00FBC4A8 /* DateEditViewController.h */,
 				4A337F91186DC2AC00FBC4A8 /* DateEditViewController.m */,
 				4A337F94186DC2AC00FBC4A8 /* DateEditViewController.xib */,
+				8246126318C1D17A00367E76 /* DateEditViewController1.h */,
+				8246126418C1D17A00367E76 /* DateEditViewController1.m */,
+				8246126518C1D17A00367E76 /* DateEditViewController1.xib */,
 				14303E5718913F400098D15E /* TaskDetailViewController.h */,
 				14303E5818913F400098D15E /* TaskDetailViewController.m */,
 				14303E5918913F400098D15E /* TaskDetailViewController.xib */,
@@ -2140,6 +2152,8 @@
 		14A7CD96186AEC6300962AAA /* task */ = {
 			isa = PBXGroup;
 			children = (
+				8246125518C1CF7A00367E76 /* task_date_bg_big.png */,
+				8246125618C1CF7A00367E76 /* task_date_bg_big@2x.png */,
 				14303E76189144C20098D15E /* task_detail_date_icon.png */,
 				14303E77189144C20098D15E /* task_detail_date_icon@2x.png */,
 				14303E64189143740098D15E /* task_detail_head_logo.png */,
@@ -2785,6 +2799,7 @@
 				148B07FA1828C0EE00F17369 /* Default-568h@2x.png in Resources */,
 				148B08091828C1F400F17369 /* RootViewController.xib in Resources */,
 				14C669F4182E1A78003B5504 /* home_navigation_bar_bg.png in Resources */,
+				8246125718C1CF7A00367E76 /* task_date_bg_big.png in Resources */,
 				14C669F5182E1A78003B5504 /* home_navigation_bar_bg@2x.png in Resources */,
 				14C66A03182E1E48003B5504 /* MakingMokaViewController.xib in Resources */,
 				14F05350182FA3EE00C87B8B /* EditProfileViewController.xib in Resources */,
@@ -2852,6 +2867,7 @@
 				142933711840515A0010C2FF /* choosing_picutre_top_cell_bg.png in Resources */,
 				142933721840515A0010C2FF /* choosing_picutre_top_cell_bg@2x.png in Resources */,
 				141C52D118435BB500293649 /* MakingAppViewController.xib in Resources */,
+				8246126C18C1D1AA00367E76 /* DateViewController.xib in Resources */,
 				141C52D61843728A00293649 /* ChoosingBgMusicViewController.xib in Resources */,
 				141C52DB1843799800293649 /* WaitingMakingAppViewController.xib in Resources */,
 				141C52DF18437A2900293649 /* making_app_waiting_bg.png in Resources */,
@@ -3030,7 +3046,6 @@
 				B96D6F4C186C706300F3AB0F /* merchant_save_btn_bg@2x.png in Resources */,
 				B96D6F4F186C771D00F3AB0F /* merchant_logo_default.png in Resources */,
 				B96D6F50186C771D00F3AB0F /* merchant_logo_default@2x.png in Resources */,
-				4A337F98186DC2AC00FBC4A8 /* DateViewController.xib in Resources */,
 				4A337F99186DC2AC00FBC4A8 /* DateEditViewController.xib in Resources */,
 				4A337F9E186DD43A00FBC4A8 /* PrepareUploadPhotoViewController.xib in Resources */,
 				4A337FA3186DD5BA00FBC4A8 /* add_photo_samplephoto.png in Resources */,
@@ -3057,6 +3072,7 @@
 				4A2E383218703AE1001E7235 /* WeixinViewController.xib in Resources */,
 				4A2E383318703AE1001E7235 /* AboutViewController.xib in Resources */,
 				4A2E383418703AE1001E7235 /* SettingViewController.xib in Resources */,
+				8246125818C1CF7A00367E76 /* task_date_bg_big@2x.png in Resources */,
 				4A2E383718704C31001E7235 /* chgpass_cellbg.png in Resources */,
 				4A2E383818704C31001E7235 /* chgpass_cellbg@2x.png in Resources */,
 				4A2E383B18705F4B001E7235 /* myhome_white_arrow.png in Resources */,
@@ -3065,6 +3081,7 @@
 				14F00F0D18714A0B00E98CE7 /* task_date_now@2x.png in Resources */,
 				14F00F0E18714A0B00E98CE7 /* task_date_tik_btn.png in Resources */,
 				14F00F0F18714A0B00E98CE7 /* task_date_tik_btn@2x.png in Resources */,
+				8246126718C1D17A00367E76 /* DateEditViewController1.xib in Resources */,
 				14F00F1018714A0B00E98CE7 /* task_grey_button.png in Resources */,
 				14F00F1118714A0B00E98CE7 /* task_grey_button@2x.png in Resources */,
 				14F00F161871602200E98CE7 /* myhome_top_female_bg.jpg in Resources */,
@@ -3162,6 +3179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				148B07F01828C0EE00F17369 /* main.m in Sources */,
+				8246126618C1D17A00367E76 /* DateEditViewController1.m in Sources */,
 				148B07F41828C0EE00F17369 /* AppDelegate.m in Sources */,
 				148B08081828C1F400F17369 /* RootViewController.m in Sources */,
 				14C669D6182DECDC003B5504 /* NSObject+SBJson.m in Sources */,
@@ -3231,6 +3249,7 @@
 				1494163B1844CD6600921B5C /* AlbumPhotoListViewController.m in Sources */,
 				149416521844D08F00921B5C /* MKAnnotationView+WebCache.m in Sources */,
 				149416531844D08F00921B5C /* SDImageCache.m in Sources */,
+				8246126B18C1D1AA00367E76 /* DateViewController.m in Sources */,
 				149416541844D08F00921B5C /* SDWebImageDecoder.m in Sources */,
 				149416551844D08F00921B5C /* SDWebImageDownloader.m in Sources */,
 				149416561844D08F00921B5C /* SDWebImageManager.m in Sources */,
@@ -3289,7 +3308,6 @@
 				B96D6F32186C674600F3AB0F /* SendInvitationViewController.m in Sources */,
 				B96D6F37186C677100F3AB0F /* ModelDetailViewController.m in Sources */,
 				140BC68D186D162E00C8D09A /* MokaNavigationController.m in Sources */,
-				4A337F96186DC2AC00FBC4A8 /* DateViewController.m in Sources */,
 				4A337F97186DC2AC00FBC4A8 /* DateEditViewController.m in Sources */,
 				4A337F9D186DD43A00FBC4A8 /* PrepareUploadPhotoViewController.m in Sources */,
 				4A2E382D18703AE1001E7235 /* SettingViewController.m in Sources */,

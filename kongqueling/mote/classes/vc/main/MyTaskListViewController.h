@@ -15,4 +15,6 @@
 @property(nonatomic, strong) IBOutlet UITableView *tableViewList;
 @property(nonatomic, strong) IBOutlet UITableView *tableViewDateTask;
 
+@property(nonatomic, strong) NSDate *selectedDate;
+
 @end

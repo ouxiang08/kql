@@ -1,10 +1,11 @@
 //
-//  DateViewController.h
+//  DateEditViewController1.h
 //  mote
 //
-//  Created by sean on 12/27/13.
-//  Copyright (c) 2013 zlm. All rights reserved.
+//  Created by 贾程阳 on 28/2/14.
+//  Copyright (c) 2014年 zlm. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface DateViewController : MokaNetworkController
+@interface DateEditViewController1 : MokaNetworkController
 
 @property(nonatomic, strong) IBOutlet UILabel *labelTitle;
 @property(nonatomic, strong) IBOutlet UIButton *buttonFront;
@@ -31,5 +32,7 @@
 
 -(void)saveDate;
 -(IBAction)onBackToNowClick:(id)sender;
+
+- (id) initWithDate: (NSDate *)date;
 
 @end
