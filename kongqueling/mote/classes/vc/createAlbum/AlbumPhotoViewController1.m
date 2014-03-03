@@ -69,7 +69,6 @@
         //picViewArr = [[NSMutableArray alloc] initWithObjects: nil];
         for (int i=0; i<kNumberOfPages; i++) {
             
-            
             //生成scrollview，把uiimageview放进来
             UIScrollView *subScl = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.frame.size.width*i, 0, self.view.frame.size.width, self.view.frame.size.height)];
             subScl.pagingEnabled = NO;
@@ -84,13 +83,23 @@
             subScl.tag = 1000+i;
             subScl.delegate = self;
             
-            if (iSelectedIndex>0){
-                [subScl addSubview:[self getImageView:iSelectedIndex]];
-                iSelectedIndex = 0;
-            }else{
+//            if (iSelectedIndex>0){
+//                [subScl addSubview:[self getImageView:iSelectedIndex]];
+//                iSelectedIndex = 0;
+//            }else{
+//            
+//                [subScl addSubview:[self getImageView:i]];
+//            }
+//            
+//            if (i<2) {
+//                [subScl addSubview:[self getImageView:i]];
+//            }
             
+            if (i==iSelectedIndex) {
                 [subScl addSubview:[self getImageView:i]];
+                [self gotoPic:iSelectedIndex];
             }
+            
             [bigImgScl addSubview:subScl];
             
             }
@@ -195,6 +204,11 @@
     }];
 }
 
+- (void)gotoPic:(int)i{
+    //currentPic = i;
+    [bigImgScl setContentOffset:CGPointMake(self.view.size.width*iSelectedIndex, 0) animated:NO];
+}
+
 
 #pragma mark - UIActionSheetDelegate
 
@@ -210,9 +224,11 @@
         currentPic=1;
     }else{
         currentPic = bigImgScl.contentOffset.x/pageWidth+1;
+        NSLog(@" bigImgScl.contentOffset.x : %f",bigImgScl.contentOffset.x);
     }
     //currentPic = floor((bigImgScl.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     NSLog(@"page:%d",currentPic);
+    
     if (currentPic<1) {
         currentPic=1;
     }
