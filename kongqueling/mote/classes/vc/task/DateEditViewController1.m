@@ -48,7 +48,6 @@
     [super viewDidLoad];
     //[self initTodayStr];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItemFactory getBarButtonItemWithImage:@"choosing_moka_picture_cancel_bg" selector:@selector(onCancel) target:self];
-
     
     NSCalendar*calendar = [NSCalendar currentCalendar];
     NSDateComponents *comps =[calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit |NSDayCalendarUnit) fromDate:[NSDate date]];

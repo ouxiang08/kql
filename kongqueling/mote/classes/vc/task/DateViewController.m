@@ -50,9 +50,9 @@
         [self initTodayStr];
     }
     
-    UIImage *image = [UIImage imageNamed:@"task_date_bg"];
-    self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-    self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+//    UIImage *image = [UIImage imageNamed:@"task_date_bg"];
+//    self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
+//    self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
     
     [self getTaskListByMonth:self.currentDate];
 }
@@ -386,12 +386,12 @@
     if (_lineNum==5) {
         UIImage *image = [UIImage imageNamed:@"task_date_bg_big"];
         self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
         _lineNum = 0;
     }else if (_lineNum==4){
         UIImage *image = [UIImage imageNamed:@"task_date_bg"];
         self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 69, image.size.width, image.size.height);
+        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
         _lineNum = 0;
     }
 }
