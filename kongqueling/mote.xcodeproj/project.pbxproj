@@ -3445,8 +3445,8 @@
 		148B07FE1828C0EE00F17369 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yongfeng xu (5V7P43786F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
@@ -3481,8 +3481,8 @@
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/YiXinSDK,
 				);
 				PRODUCT_NAME = "孔雀翎";
-				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "07E23176-3114-42F0-A5F0-801523C17BBE";
+				PROVISIONING_PROFILE = "332F0CFF-7ABC-4C6F-A6D2-CA7B877669A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "332F0CFF-7ABC-4C6F-A6D2-CA7B877669A5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3490,8 +3490,8 @@
 		148B07FF1828C0EE00F17369 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: yongfeng xu (5V7P43786F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yongfeng xu (5V7P43786F)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
@@ -3526,8 +3526,8 @@
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK2.8.3/Extend/YiXinSDK,
 				);
 				PRODUCT_NAME = "孔雀翎";
-				PROVISIONING_PROFILE = "07E23176-3114-42F0-A5F0-801523C17BBE";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "07E23176-3114-42F0-A5F0-801523C17BBE";
+				PROVISIONING_PROFILE = "332F0CFF-7ABC-4C6F-A6D2-CA7B877669A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "332F0CFF-7ABC-4C6F-A6D2-CA7B877669A5";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

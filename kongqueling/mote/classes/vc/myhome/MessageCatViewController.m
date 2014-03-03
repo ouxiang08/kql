@@ -97,6 +97,8 @@
     if (num>0) {
         msgLabel.text = [NSString stringWithFormat:@"%d",num];
         imageView.hidden = NO;
+    }else{
+        imageView.hidden = YES;
     }
     
     switch (indexPath.row) {
