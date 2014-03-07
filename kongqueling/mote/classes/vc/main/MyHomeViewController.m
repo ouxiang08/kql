@@ -196,6 +196,7 @@
 
 - (void)didReceiveMemoryWarning
 {
+     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -218,6 +219,11 @@
     }else{
         image.hidden = YES;
     }
+}
+
+-(void)dealloc{
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end

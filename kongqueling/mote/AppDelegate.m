@@ -89,8 +89,8 @@ static UIView* viewShare;
             NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
             NSURL *query2 = [NSURL URLWithString:strUrl2];
             NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
-            NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
-            //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+            //NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+            NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
             /*------------------------------------------jiajingjing--------------------------------------------------*/
             [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
             int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
