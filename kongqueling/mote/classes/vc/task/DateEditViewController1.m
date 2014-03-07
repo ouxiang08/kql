@@ -96,10 +96,14 @@
             self.maskView.hidden = YES;
             [self.delegate setDateSuccess];
             [[ToastViewAlert defaultCenter] postAlertWithMessage:@"档期设置成功！"];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
         } andFailureBlock:^(NSError *error) {
             self.maskView.hidden = YES;
         }];
     }
+    
 }
 
 -(void)getTaskListByMonth:(NSDate *)date{
@@ -387,16 +391,26 @@
     }
     
     /*----------------------------------------jiajingjing--------------------------------------------*/
+    CGFloat width;
+    CGFloat height;
     _lineNum=_num/46;
     if (_lineNum==5) {
         UIImage *image = [UIImage imageNamed:@"task_date_bg_big"];
-        self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
+        width = image.size.width;
+        height = image.size.height+3;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        imageView.image = image;
+        [self.viewDate insertSubview:imageView atIndex:0];
+        self.viewDate.frame = CGRectMake(0, 68, width, height);
         _lineNum = 0;
     }else if (_lineNum==4){
         UIImage *image = [UIImage imageNamed:@"task_date_bg"];
-        self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
+        width = image.size.width;
+        height = image.size.height+3;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        imageView.image = image;
+        [self.viewDate insertSubview:imageView atIndex:0];
+        self.viewDate.frame = CGRectMake(0, 68, width, height);
         _lineNum = 0;
     }
 }

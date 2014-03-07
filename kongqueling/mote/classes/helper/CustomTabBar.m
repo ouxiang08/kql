@@ -81,7 +81,7 @@
 
         horizontalOffset = horizontalOffset + width;
         
-        UIImageView* badge = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalOffset-30, 3, 20, 20)];
+        UIImageView* badge = [[UIImageView alloc] initWithFrame:CGRectMake(horizontalOffset-35, 3, 20, 20)];
         badge.image = [UIImage imageNamed:@"badge.png"];
         badge.hidden = YES;
         [viewTabBar addSubview: badge];
@@ -205,7 +205,6 @@
         badgeLabel.textColor = [UIColor whiteColor];
         badgeLabel.text = [NSString stringWithFormat:@"%d",totalNum];
         [imgv addSubview:badgeLabel];
-        badgeLabel.text = [NSString stringWithFormat:@"%d",totalNum];
         imgv.hidden = NO;
     }else{
         imgv.hidden = YES;

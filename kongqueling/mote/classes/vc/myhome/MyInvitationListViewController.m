@@ -76,6 +76,36 @@
     contentCell.labelArea.text = [dict valueForKey:@"district"];
     contentCell.labelTag.text = [dict valueForKey:@"industry"];
     [contentCell.imageViewLogo setImageWithURL:urlFromImageURLstr([dict valueForKey:@"img"]) placeholderImage:[UIImage imageNamed:@"no_image"]];
+    
+    /*--------------------------------jiajingjing------------------------------------------*/
+    int isInvited = [[dict valueForKey:@"invite_status"] intValue];
+    UIImage *inviteImage = [UIImage imageNamed:@"inviteStatu"];
+    UIImageView *inviteImageView = [[UIImageView alloc] initWithImage:inviteImage];
+    inviteImageView.frame = CGRectMake(238, 26, 45, 21);
+    inviteImageView.tag = 1024;
+    UILabel *inviteLabel = [[UILabel alloc]initWithFrame:inviteImageView.bounds];
+    inviteLabel.textAlignment = NSTextAlignmentCenter;
+    inviteLabel.backgroundColor = [UIColor clearColor];
+    inviteLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+    inviteLabel.textColor = [UIColor blackColor];
+    [inviteImageView addSubview:inviteLabel];
+    
+    UIImageView *oldImageView = (UIImageView *)[contentCell viewWithTag:1024];
+    
+    if (isInvited==1) {
+        inviteLabel.text = @"已通过";
+    }else if (isInvited==-1){
+        inviteLabel.text = @"已拒绝";
+    }else if (isInvited==0){
+        inviteLabel.text = @"待回复";
+    }
+    
+    if (oldImageView) {
+        [oldImageView removeFromSuperview];
+    }
+    
+    [contentCell addSubview:inviteImageView];
+    
     int score = [[dict valueForKey:@"score"] integerValue];
     if (score == 0) {
         contentCell.imageViewRate.image = [UIImage imageNamed:@"finder_start_0"];

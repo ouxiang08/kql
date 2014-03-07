@@ -583,6 +583,9 @@
 		8246126F18C1D49D00367E76 /* AlbumPhotoViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8246126E18C1D49D00367E76 /* AlbumPhotoViewController1.m */; };
 		82516A3218C4190900B5418A /* task_date_bg_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 82516A3018C4190900B5418A /* task_date_bg_big.png */; };
 		82516A3318C4190900B5418A /* task_date_bg_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82516A3118C4190900B5418A /* task_date_bg_big@2x.png */; };
+		827C879418C8173C0035AC53 /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 827C879218C8173C0035AC53 /* badge.png */; };
+		827C879518C8173C0035AC53 /* badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827C879318C8173C0035AC53 /* badge@2x.png */; };
+		827C879718C85D3F0035AC53 /* inviteStatu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827C879618C85D3F0035AC53 /* inviteStatu@2x.png */; };
 		B96D6F32186C674600F3AB0F /* SendInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */; };
 		B96D6F33186C674600F3AB0F /* SendInvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */; };
 		B96D6F37186C677100F3AB0F /* ModelDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B96D6F35186C677100F3AB0F /* ModelDetailViewController.m */; };
@@ -1368,6 +1371,9 @@
 		8246126E18C1D49D00367E76 /* AlbumPhotoViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPhotoViewController1.m; sourceTree = "<group>"; };
 		82516A3018C4190900B5418A /* task_date_bg_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_date_bg_big.png; sourceTree = "<group>"; };
 		82516A3118C4190900B5418A /* task_date_bg_big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "task_date_bg_big@2x.png"; sourceTree = "<group>"; };
+		827C879218C8173C0035AC53 /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
+		827C879318C8173C0035AC53 /* badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "badge@2x.png"; sourceTree = "<group>"; };
+		827C879618C85D3F0035AC53 /* inviteStatu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inviteStatu@2x.png"; sourceTree = "<group>"; };
 		B96D6F2F186C674600F3AB0F /* SendInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendInvitationViewController.h; sourceTree = "<group>"; };
 		B96D6F30186C674600F3AB0F /* SendInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendInvitationViewController.m; sourceTree = "<group>"; };
 		B96D6F31186C674600F3AB0F /* SendInvitationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendInvitationViewController.xib; sourceTree = "<group>"; };
@@ -2208,6 +2214,7 @@
 		14B6CB421854358E0021218B /* myhome */ = {
 			isa = PBXGroup;
 			children = (
+				827C879618C85D3F0035AC53 /* inviteStatu@2x.png */,
 				4A586CED1895122E0013A5FB /* about_kql.png */,
 				4A586CEE1895122E0013A5FB /* about_kql@2x.png */,
 				142C56F71886788D00C7418B /* personal_view_three_row_no_top_bg.png */,
@@ -2395,6 +2402,8 @@
 		14C669F1182E1A78003B5504 /* sys */ = {
 			isa = PBXGroup;
 			children = (
+				827C879218C8173C0035AC53 /* badge.png */,
+				827C879318C8173C0035AC53 /* badge@2x.png */,
 				8246125118C1CD8F00367E76 /* tabbar_background.png */,
 				8246125218C1CD8F00367E76 /* tabbar_background@2x.png */,
 				4A6B5E0518780D46005A127C /* kql_code.png */,
@@ -2925,6 +2934,7 @@
 				14FF0705184F2A8E00C06247 /* next_step_0.png in Resources */,
 				14FF0706184F2A8E00C06247 /* next_step_0@2x.png in Resources */,
 				14FF0707184F2A8E00C06247 /* next_step_1.png in Resources */,
+				827C879418C8173C0035AC53 /* badge.png in Resources */,
 				14FF0708184F2A8E00C06247 /* next_step_1@2x.png in Resources */,
 				14FF0709184F2A8E00C06247 /* people.png in Resources */,
 				14FF070A184F2A8E00C06247 /* text_box.png in Resources */,
@@ -3050,6 +3060,7 @@
 				B96D6F4B186C706300F3AB0F /* merchant_save_btn_bg.png in Resources */,
 				B96D6F4C186C706300F3AB0F /* merchant_save_btn_bg@2x.png in Resources */,
 				B96D6F4F186C771D00F3AB0F /* merchant_logo_default.png in Resources */,
+				827C879518C8173C0035AC53 /* badge@2x.png in Resources */,
 				B96D6F50186C771D00F3AB0F /* merchant_logo_default@2x.png in Resources */,
 				4A337F99186DC2AC00FBC4A8 /* DateEditViewController.xib in Resources */,
 				4A337F9E186DD43A00FBC4A8 /* PrepareUploadPhotoViewController.xib in Resources */,
@@ -3172,6 +3183,7 @@
 				14303E79189144C20098D15E /* task_detail_date_icon@2x.png in Resources */,
 				4A586CEF1895122E0013A5FB /* about_kql.png in Resources */,
 				4A586CF01895122E0013A5FB /* about_kql@2x.png in Resources */,
+				827C879718C85D3F0035AC53 /* inviteStatu@2x.png in Resources */,
 				14AE08DE1895193B0033B394 /* AreaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

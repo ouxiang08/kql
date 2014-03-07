@@ -224,8 +224,9 @@
             [self.delegate onClickDateWithArrTaskInfo:[[NSArray alloc] init]];
             [[ToastViewAlert defaultCenter] postAlertWithMessage:@"当天无任务！"];
         }
-        
     }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(int)compareDate:(NSString *)strDateDisplay{
@@ -362,7 +363,7 @@
             [_arrCheck addObject:@"0"];
         }
         NSLog(@"iXOffset:%d",iXOffset);
-        
+        NSLog(@"iYOffset:%d",iYOffset);
         _num = iYOffset;
         [self.viewDate addSubview:button];
         
@@ -373,25 +374,37 @@
             [button addSubview:imageView];
         }
         
-        if (iXOffset >270) {
+        if (iXOffset >260) {
             iXOffset = 0;
             iYOffset += 46;
         }else{
             iXOffset +=46;
         }
+        
+        //[button bringSubviewToFront:self.viewDate];
     }
     
     /*----------------------------------------jiajingjing--------------------------------------------*/
+    CGFloat width;
+    CGFloat height;
     _lineNum=_num/46;
     if (_lineNum==5) {
         UIImage *image = [UIImage imageNamed:@"task_date_bg_big"];
-        self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
+        width = image.size.width;
+        height = image.size.height+3;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        imageView.image = image;
+        [self.viewDate insertSubview:imageView atIndex:0];
+        self.viewDate.frame = CGRectMake(0, 68, width, height);
         _lineNum = 0;
     }else if (_lineNum==4){
         UIImage *image = [UIImage imageNamed:@"task_date_bg"];
-        self.viewDate.backgroundColor = [UIColor colorWithPatternImage:image];
-        self.viewDate.frame = CGRectMake(0, 68, image.size.width, image.size.height);
+        width = image.size.width;
+        height = image.size.height+3;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+        imageView.image = image;
+         [self.viewDate insertSubview:imageView atIndex:0];
+        self.viewDate.frame = CGRectMake(0, 68, width, height);
         _lineNum = 0;
     }
 }
