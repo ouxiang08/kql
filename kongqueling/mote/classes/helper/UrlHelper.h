@@ -79,6 +79,8 @@
 
 +(NSString *)stringUrlMessageDelete;
 
++(NSString *)stringUrlMessageUpdte;
+
 +(NSString *)stringUrlSendInvite;
 
 +(NSString *)stringUrlGetUserMerchant:(int)status;
