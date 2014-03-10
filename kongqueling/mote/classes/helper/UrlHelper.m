@@ -47,7 +47,7 @@
     strURL = [self addCommonParameter:strURL];
     return strURL;
 }
-//登陆时提交的URL
+
 +(NSString *)stringUrlDoLogin:(NSString *)strMobile password:(NSString *)strPassword bduid:(NSString *)bduid bdcid:(NSString *)bdcid{
     NSString *strURL = [NSString stringWithFormat:@"%@/dologin?mobile=%@&pass=%@&platform=ios&bduid=%@&channelid=%@",KHomeUrlDefault,strMobile,strPassword,bduid,bdcid];
     return strURL;
