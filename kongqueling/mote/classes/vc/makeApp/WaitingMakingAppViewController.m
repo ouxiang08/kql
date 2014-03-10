@@ -44,7 +44,19 @@
 //    [rotationAnimation setValue:@"rotationAnimation" forKey:@"MyAnimationType"];
 //    [_imgvCycle.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     [self rotate360DegreeWithImageView:self.imgvCycle];
-    [self makingApp];
+    //[self makingApp];
+    
+    //临时方案
+    UINavigationController *nav = self.navigationController;
+    [nav popViewControllerAnimated:NO];
+    [nav popViewControllerAnimated:NO];
+    [nav popViewControllerAnimated:NO];
+    
+    MakingAppSuccessViewController *makingSucccessViewController = [[MakingAppSuccessViewController alloc] init];
+    makingSucccessViewController.imgapth = self.strHomePath;
+    makingSucccessViewController.apptitle = self.strAppName;
+    [nav pushViewController:makingSucccessViewController animated:YES];
+    
     /*
     CABasicAnimation* spinAnimation = [CABasicAnimation
                                        animationWithKeyPath:@"transform.rotation"];

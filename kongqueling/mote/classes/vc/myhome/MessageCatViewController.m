@@ -162,7 +162,9 @@
     
     [tableView reloadData];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kMessageDidChangeNofication object:nil];
+    if (![firstNum isEqualToString:@"0"] || ![secondNum isEqualToString:@"0"] || ![thirdNum isEqualToString:@"0"]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kMessageDidChangeNofication object:nil];
+    }
     
 }
 

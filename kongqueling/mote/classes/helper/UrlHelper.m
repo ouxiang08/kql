@@ -203,6 +203,11 @@
     return strURL;
 }
 
++(NSString *)stringUrlMessageUpdte{
+    NSString *strURL = [NSString stringWithFormat:@"%@/updatemsg",KHomeUrlDefault];
+    return strURL;
+}
+
 +(NSString *)stringUrlSetMfav{
     NSString *strURL = [NSString stringWithFormat:@"%@/setMfav",KHomeUrlDefault];
     return strURL;

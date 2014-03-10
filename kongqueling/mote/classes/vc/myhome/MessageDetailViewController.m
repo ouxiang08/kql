@@ -68,6 +68,23 @@
     txtDesc.textAlignment = NSTextAlignmentLeft;
     txtDesc.text = [_msgInfo objectForKey:@"content"];
     [self.view addSubview:txtDesc];
+    
+    if (_msgTypeId==3) {
+        
+        UIButton *acceptbtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+        acceptbtn.frame=CGRectMake(10,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
+        [acceptbtn setTitle:@"接受" forState:(UIControlStateNormal)];
+        acceptbtn.tag = 1;
+        [acceptbtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:acceptbtn];
+        
+        UIButton *refusebtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+        refusebtn.frame=CGRectMake(210,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
+        [refusebtn setTitle:@"拒绝" forState:(UIControlStateNormal)];
+        acceptbtn.tag = 2;
+        [refusebtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:refusebtn];
+    }
   
 }
 
@@ -81,6 +98,32 @@
     [self actionRequestWithUrl:strAlbum parameters:dicParameter successBlock:^(NSDictionary *dictResponse) {
         NSInteger errorNo = [[dictResponse valueForKey:@"code"] integerValue];
         if (errorNo == 1) {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+    } andFailureBlock:^(NSError *error) {
+        
+    }];
+}
+
+-(void)onAction:(UIButton *)bt{
+    
+    NSString *strAlbum = [UrlHelper stringUrlMessageUpdte];
+    NSMutableDictionary *dicParameter = [NSMutableDictionaryFactory getMutableDictionary];
+    
+    [dicParameter setObject:[_msgInfo objectForKey:@"id"] forKey:@"msgId"];
+    if (bt.tag==1) {
+        [dicParameter setObject:@"1" forKey:@"status"];
+    }
+    if (bt.tag==2) {
+        [dicParameter setObject:@"-1" forKey:@"status"];
+    }
+    
+    [self actionRequestWithUrl:strAlbum parameters:dicParameter successBlock:^(NSDictionary *dictResponse) {
+        NSInteger errorNo = [[dictResponse valueForKey:@"code"] integerValue];
+        if (errorNo == 1) {
+            [[ToastViewAlert defaultCenter] postAlertWithMessage:@"操作成功！"];
+
             [self.navigationController popViewControllerAnimated:YES];
             
         }
