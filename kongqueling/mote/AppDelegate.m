@@ -75,6 +75,8 @@ static UIView* viewShare;
         NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
         [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
         navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+        //App第一次启动的时候，初始化badge's number
+        [[MainModel sharedObject] saveMsgNum:@"0" secondNum:@"0" thirdNum:@"0"];
         
         [self.nav presentViewController:navStart animated:NO completion:^(void){}];
     }else{
