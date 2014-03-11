@@ -44,7 +44,22 @@
 //    [rotationAnimation setValue:@"rotationAnimation" forKey:@"MyAnimationType"];
 //    [_imgvCycle.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     [self rotate360DegreeWithImageView:self.imgvCycle];
+    
+    //临时方案
     //[self makingApp];
+    
+   
+    
+    /*
+    CABasicAnimation* spinAnimation = [CABasicAnimation
+                                       animationWithKeyPath:@"transform.rotation"];
+    spinAnimation.toValue = [NSNumber numberWithFloat:5*2*M_PI];
+    [_imgvCycle.layer addAnimation:spinAnimation forKey:@"spinAnimation"];
+     */
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
     //临时方案
     UINavigationController *nav = self.navigationController;
@@ -56,13 +71,6 @@
     makingSucccessViewController.imgapth = self.strHomePath;
     makingSucccessViewController.apptitle = self.strAppName;
     [nav pushViewController:makingSucccessViewController animated:YES];
-    
-    /*
-    CABasicAnimation* spinAnimation = [CABasicAnimation
-                                       animationWithKeyPath:@"transform.rotation"];
-    spinAnimation.toValue = [NSNumber numberWithFloat:5*2*M_PI];
-    [_imgvCycle.layer addAnimation:spinAnimation forKey:@"spinAnimation"];
-     */
 }
 
 - (UIImageView *)rotate360DegreeWithImageView:(UIImageView *)imageView{

@@ -71,19 +71,35 @@
     
     if (_msgTypeId==3) {
         
-        UIButton *acceptbtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        acceptbtn.frame=CGRectMake(10,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
-        [acceptbtn setTitle:@"接受" forState:(UIControlStateNormal)];
-        acceptbtn.tag = 1;
-        [acceptbtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:acceptbtn];
-        
-        UIButton *refusebtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        refusebtn.frame=CGRectMake(210,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
-        [refusebtn setTitle:@"拒绝" forState:(UIControlStateNormal)];
-        acceptbtn.tag = 2;
-        [refusebtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:refusebtn];
+        if ([[_msgInfo objectForKey:@"status"] isEqualToString:@"0"]) {
+            UIButton *acceptbtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            acceptbtn.frame=CGRectMake(10,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
+            [acceptbtn setTitle:@"接受" forState:(UIControlStateNormal)];
+            acceptbtn.tag = 1;
+            [acceptbtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:acceptbtn];
+            
+            UIButton *refusebtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            refusebtn.frame=CGRectMake(210,[UIScreen mainScreen].bounds.size.height-120, 100, 40);
+            [refusebtn setTitle:@"拒绝" forState:(UIControlStateNormal)];
+            refusebtn.tag = 2;
+            [refusebtn addTarget:self action:@selector(onAction:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:refusebtn];
+        }else if([[_msgInfo objectForKey:@"status"] isEqualToString:@"1"]){
+            UILabel *resultLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-120, 320, 12)];
+            resultLabel.font=[UIFont fontWithName:KdefaultFont size:12];
+            resultLabel.backgroundColor=[UIColor clearColor];
+            resultLabel.textAlignment = NSTextAlignmentCenter;
+            resultLabel.text= @"已通过邀约请求";
+            [self.view addSubview:resultLabel];
+        }else if([[_msgInfo objectForKey:@"status"] isEqualToString:@"-1"]){
+            UILabel *resultLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height-120, 320, 12)];
+            resultLabel.font=[UIFont fontWithName:KdefaultFont size:12];
+            resultLabel.backgroundColor=[UIColor clearColor];
+            resultLabel.textAlignment = NSTextAlignmentCenter;
+            resultLabel.text= @"已拒绝邀约请求";
+            [self.view addSubview:resultLabel];
+        }
     }
   
 }

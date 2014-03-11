@@ -124,7 +124,6 @@ static UIView* viewShare;
 }
 
 
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
      NSLog(@"test:%@",deviceToken);
@@ -186,6 +185,19 @@ static UIView* viewShare;
 //                                                  otherButtonTitles:nil];
 //        [alertView show];
 //    }
+    
+    NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+    NSURL *query2 = [NSURL URLWithString:strUrl2];
+    NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+    NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+    //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+    /*------------------------------------------jiajingjing--------------------------------------------------*/
+    [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+    if (totalNum>0) {
+        [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+    }
+    
     [application setApplicationIconBadgeNumber:0];
     
     [BPush handleNotification:userInfo];
@@ -263,6 +275,18 @@ static UIView* viewShare;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+    NSURL *query2 = [NSURL URLWithString:strUrl2];
+    NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+    NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+    //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+    /*------------------------------------------jiajingjing--------------------------------------------------*/
+    [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
+    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+    if (totalNum>0) {
+        [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
