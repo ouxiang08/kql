@@ -15,4 +15,5 @@
 @property(nonatomic, strong) IBOutlet UILabel *labelTitle;
 @property(nonatomic, strong) IBOutlet UILabel *labelArea;
 @property(nonatomic, strong) IBOutlet UILabel *labelTag;
+@property (strong, nonatomic) IBOutlet UIButton *buttonSend;
 @end

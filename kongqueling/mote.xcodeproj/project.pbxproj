@@ -3459,6 +3459,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
@@ -3504,6 +3505,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai PicPai Network Technology Co., Ltd.";
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/ouxiang08/WorkSpace/kql/kongqueling/lib/ShareSDK/Connection,
