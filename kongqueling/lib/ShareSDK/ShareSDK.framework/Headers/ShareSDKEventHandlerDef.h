@@ -6,7 +6,6 @@
 //  商务QQ:4006852216
 //  Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
 //
-
 #import "ShareSDKTypeDef.h"
 #import "ISSPage.h"
 #import "ShareSDKPlugin.h"
@@ -68,5 +67,17 @@ typedef void(^SSPublishContentEventHandler) (ShareType type, SSResponseState sta
  *	@brief	分享菜单项点击事件处理器
  */
 typedef void(^SSShareActionSheetItemClickHandler) ();
+
+/**
+ *	@brief	获取金币通知
+ */
+typedef void(^SSAwardObtainCoinsHandler) (SSObtainCoinsAction action, NSInteger coins);
+
+/**
+ *	@brief	购买商品通知
+ */
+typedef void(^SSAwardBuyItemHandler) (SSResponseState state, NSString *itemId, NSString *data, NSString *errorMsg);
+
+
 
 #endif

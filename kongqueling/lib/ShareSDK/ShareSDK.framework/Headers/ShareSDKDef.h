@@ -6,7 +6,6 @@
 //  商务QQ:4006852216
 //  Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
 //
-
 #import "SSInheritValue.h"
 
 #ifndef ShareSDKInterface_ShareSDKDef_h
@@ -20,7 +19,7 @@
 #define SHARE_TYPE_NUMBER(type) [NSNumber numberWithInteger:type]
 
 /**
- *	@brief	继承指
+ *	@brief	继承值
  */
 #define INHERIT_VALUE [SSInheritValue inherit]
 
@@ -30,6 +29,26 @@
  *	@param 	name 	属性名称
  */
 #define MAPPING_VALUE(name) [SSInheritValue inheritWithName:name]
+
+/**
+ *	@brief	获取金币通知
+ */
+#define SS_AWARD_NOTIF_GET_COINS @"get_coins"
+
+/**
+ *	@brief	购买物品通知
+ */
+#define SS_AWARD_NOTIF_BUY_ITEM @"buy_item"
+
+/**
+ *	@brief	金币键名
+ */
+#define SS_AWARD_KEY_COINS @"coins"
+
+/**
+ *	@brief	行为键名
+ */
+#define SS_AWARD_KEY_ACTION @"action"
 
 
 #endif

@@ -6,7 +6,6 @@
 //  商务QQ:4006852216
 //  Copyright (c) 2013年 ShareSDK.cn. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 #import <ShareSDKCoreService/ShareSDKCoreService.h>
 #import "NSArray+ShareSDK.h"
@@ -22,6 +21,8 @@
 #import "ISSShareViewDelegate.h"
 #import "ISSShareActionSheetItem.h"
 #import "ISSUserField.h"
+#import "SSAwardViewController.h"
+#import "UIViewController+ShareSDK.h"
 
 /**
  *	@brief	ShareSDK类，为整个SDK的顶层接口类，所有功能都由此类进行提供（包括分享、授权等等）
@@ -39,6 +40,9 @@
  *	@brief	注册应用。
  *
  *  @since  ver2.2.6
+ *  @since  ver2.9.0
+ *
+ *  @deprecated     已过期，默认会同时使用本地配置和服务器托管配置。其优先级为：服务器托管配置 > 本地配置
  *
  *	@param 	appKey 	应用Key,在ShareSDK官网中注册的应用Key
  *	@param 	useAppTrusteeship 	是否使用平台信息托管，如果为YES则获取在服务器中配置的平台信息，NO表示获取本地配置信息。
@@ -106,7 +110,6 @@
                        platform:(id<ISSPlatform>)platform
                         appInfo:(NSDictionary *)appInfo;
 
-
 /**
  *	@brief	连接新浪微博开放平台应用以使用相关功能，此应用需要引用SinaWeiboConnection.framework
  *          http://open.weibo.com上注册新浪微博开放平台应用，并将相关信息填写到以下字段
@@ -158,7 +161,7 @@
  *	@param 	appKey 	应用Key
  *	@param 	appSecret 	应用密钥
  *	@param 	redirectUri 	回调地址，此地址则为应用地址。
- *  @param  wbApiCls    腾讯微博Api类型，引入WBApi.h，并将[WBApi class]传入参数，注：不使用SSO时可以传入nil
+ *  @param  wbApiCls    腾讯微博Api类型，引入WeiboApi.h，并将[WBApi class]传入参数，注：不使用SSO时可以传入nil
  */
 + (void)connectTencentWeiboWithAppKey:(NSString *)appKey
                             appSecret:(NSString *)appSecret
@@ -189,7 +192,6 @@
                      appSecret:(NSString *)appSecret
              qqApiInterfaceCls:(Class)qqApiInterfaceCls
                tencentOAuthCls:(Class)tencentOAuthCls;
-
 
 /**
  *	@brief	连接网易微博应用以使用相关功能，此应用需要引用T163WeiboConnection.framework
@@ -333,7 +335,6 @@
                qqApiInterfaceCls:(Class)qqApiInterfaceCls
                  tencentOAuthCls:(Class)tencentOAuthCls;
 
-
 /**
  *	@brief	连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
  *          http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
@@ -381,7 +382,6 @@
 + (void)connectEvernoteWithType:(SSEverNoteType)type
                     consumerKey:(NSString *)consumerKey
                  consumerSecret:(NSString *)consumerSecret;
-
 
 /**
  *	@brief	连接LinkedIn以使用相关功能，此平台需要引用LinkedInConnection.framework
@@ -518,7 +518,6 @@
 + (void)connectWeChatSessionWithAppId:(NSString *)appId
                             wechatCls:(Class)wechatCls;
 
-
 /**
  *	@brief	连接微信朋友圈
  *
@@ -551,7 +550,7 @@
                             yixinCls:(Class)yixinCls;
 
 /**
- *	@brief	链接易信好友
+ *	@brief	链接易信朋友圈
  *
  *  @since  ver2.7.0
  *
@@ -560,7 +559,6 @@
  */
 + (void)connectYiXinTimelineWithAppId:(NSString *)appId
                              yixinCls:(Class)yixinCls;
-
 
 /**
  *	@brief	连接易信应用以使用相关功能，此应用需要引用YiXinConnection.framework和易信官方SDK
@@ -581,7 +579,6 @@
  *	@return	YES 表示接受请求 NO 表示不接受
  */
 + (BOOL)handleOpenURL:(NSURL *)url wxDelegate:(id)wxDelegate;
-
 
 /**
  *	@brief	处理请求打开链接,如果集成新浪微博(SSO)、Facebook(SSO)、微信、QQ分享功能需要加入此方法
@@ -817,7 +814,6 @@
        locationCoordinate:(SSCLocationCoordinate2D *)locationCoordinate
                   groupId:(NSString *)groupId;
 
-
 /**
  *	@brief	获取图片信息
  *
@@ -867,7 +863,6 @@
 + (id<ISSCAttachment>)imageWithData:(NSData *)data
                            fileName:(NSString *)fileName
                            mimeType:(NSString *)mimeType;
-
 /**
  *	@brief	创建容器对象
  *
@@ -1011,7 +1006,6 @@
  */
 + (NSArray *)connectedPlatformTypes;
 
-
 /**
  *	@brief	获取当前SDK版本号
  *
@@ -1021,6 +1015,14 @@
  */
 + (NSString *)version;
 
+/**
+ *	@brief	设置UI显示风格，默认为iOS7风格
+ *
+ *  @since  ver2.9.0
+ *
+ *	@param 	style 	UI显示风格
+ */
++ (void)setUIStyle:(SSUIStyle)style;
 
 
 #pragma mark 授权
@@ -1180,7 +1182,6 @@
  *
  */
 + (void)setCurrentAuthUser:(id<ISSPlatformUser>)user type:(ShareType)type;
-
 
 /**
  *	@brief	获取授权用户列表
@@ -1458,5 +1459,29 @@
                       type:(ShareType)type
              statusBarTips:(BOOL)statusBarTips
                     result:(SSPublishContentEventHandler)result;
+
+#pragma mark - 分享有奖
+
+/**
+ *	@brief	创建分享有奖视图控制器
+ *
+ *	@return	分享有奖视图控制器
+ */
++ (SSAwardViewController *)awardViewController;
+
+/**
+ *	@brief	设置获取金币通知处理
+ *
+ *	@param 	handler 	通知处理器
+ */
++ (void)setObtainCoinsHandler:(SSAwardObtainCoinsHandler)handler;
+
+/**
+ *	@brief	设置购买物品通知处理
+ *
+ *	@param 	handler 	通知处理器
+ */
++ (void)setBuyItemHandler:(SSAwardBuyItemHandler)handler;
+
 
 @end
