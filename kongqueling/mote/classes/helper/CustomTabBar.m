@@ -9,11 +9,15 @@
 #import "CustomTabBar.h"
 
 @interface CustomTabBar()
+
 - (void) buttonDown: (id) sender;
+
 @end
 
 @implementation CustomTabBar
+
 @synthesize delegate = _delegate;
+
 - (id) init
 {
     self = [super init];
@@ -193,12 +197,18 @@
     m_arrayImageSelected = imageArray;
 }
 
+
 - (void)setBadgeNumer:(int)index number:(int)numer
 {
     /*------------------------------------------jiajingjing--------------------------------------------------*/
     UIImageView *imgv = [m_arrayBages objectAtIndex:index];
     int totalNum = [[[MainModel sharedObject] getNumByIndex:3] integerValue];
     if (totalNum>0) {
+        //如果已经有文本则先删除
+        if (imgv.subviews.count>0) {
+            [imgv.subviews[0] removeFromSuperview];
+        }
+        
         UILabel *badgeLabel = [[UILabel alloc]initWithFrame:imgv.bounds];
         badgeLabel.textAlignment = NSTextAlignmentCenter;
         badgeLabel.backgroundColor = [UIColor clearColor];

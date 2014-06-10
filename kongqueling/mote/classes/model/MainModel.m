@@ -131,6 +131,7 @@ static MainModel *sharedListInstance = nil;
 }
 
 
+
 - (void) saveDictUserInfo: (NSDictionary *)dictUserInfo{
     self.dictUserInfo = dictUserInfo;
     
@@ -142,6 +143,17 @@ static MainModel *sharedListInstance = nil;
     return [[NSUserDefaults standardUserDefaults] objectForKey:KDictUserInfo];
 }
 
+
+- (void) saveShareInfo: (NSDictionary *)dicShareInfo{
+    self.dictShareInfo = dicShareInfo;
+    
+    [[NSUserDefaults standardUserDefaults] setObject: dicShareInfo  forKey:KShareInfo];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSDictionary *)dictShareInfo{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:KShareInfo];
+}
 
 - (void) savePriceInfo: (NSArray *)arrPriceInfo{
     self.arrPriceInfo = arrPriceInfo;
@@ -171,7 +183,10 @@ static MainModel *sharedListInstance = nil;
 -(NSString *)getNumByIndex:(int)index{
 
     NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:KMsgNum];
-    return [array objectAtIndex:index];
+    if ([array count]>0) {
+        return [array objectAtIndex:index];
+    }
+    return 0;
 }
 
 @end

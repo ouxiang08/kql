@@ -16,6 +16,7 @@
 #import "MokaTabBarViewController.h"
 #import "MyInvitationListViewController.h"
 #import "MySaveListViewController.h"
+#import "MyWebHomeViewController.h"
 
 @interface MyHomeViewController ()<UITableViewDelegate,UITableViewDataSource,ModifyLogoDelegate>{
     NSDictionary *_dictBaseInfo;
@@ -33,8 +34,6 @@
         // Custom initialization
         self.title = @"个人中心";
 		self.tabBarItem.image = [UIImage imageNamed:@"moka_tabbar_home_normal_bg"];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(msgNumChange) name:kMessageDidChangeNofication object:nil];
-
     }
     return self;
 }
@@ -59,38 +58,21 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 7;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        /*---------------------------------------jiajingjing-----------------------------------------------*/
-        UIImageView* badgeView = [[UIImageView alloc] initWithFrame:CGRectMake(320-80, 12, 20, 20)];
-        badgeView.image = [UIImage imageNamed:@"badge.png"];
-        UILabel *badgeLabel = [[UILabel alloc]initWithFrame:badgeView.bounds];
-        badgeLabel.textAlignment = NSTextAlignmentCenter;
-        badgeLabel.backgroundColor = [UIColor clearColor];
-        badgeLabel.font = [UIFont boldSystemFontOfSize:13.0f];
-        badgeLabel.textColor = [UIColor whiteColor];
-        int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
-        [badgeView addSubview:badgeLabel];
-        badgeView.hidden = YES;
-        badgeView.tag = 2002;
-        [self.tableViewCellMessage addSubview:badgeView];
-        if (totalNum>0) {
-            badgeLabel.text = [[MainModel sharedObject] getNumByIndex:3];
-            UIImageView *image = (UIImageView *)[self.tableViewCellMessage viewWithTag:2002];
-            image.hidden = NO;
-        }
+        return self.tableViewCellMyWeb;
+    }else if (indexPath.row == 1) {
         return self.tableViewCellMessage;
-        
-    }else if(indexPath.row == 1){
-        return self.tableViewCellApp;
     }else if(indexPath.row == 2){
-        return self.tableViewCellMoka;
+        return self.tableViewCellApp;
     }else if(indexPath.row == 3){
-        return self.tableViewCellCollection;
+        return self.tableViewCellMoka;
     }else if(indexPath.row == 4){
+        return self.tableViewCellCollection;
+    }else if(indexPath.row == 5){
         return self.tableViewCellInvitation;
     }else{
         return self.tableViewCellPersonal;
@@ -98,26 +80,30 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 1) {
-        MyAppListViewController *appListVC = [[MyAppListViewController alloc] init];
-        [self.navigationController pushViewController:appListVC animated:YES];
-    }else if (indexPath.row ==2) {
-        MyCardListViewController *cardListVC = [[MyCardListViewController alloc] init];
-        [self.navigationController pushViewController:cardListVC animated:YES];
-    }else if (indexPath.row == 5) {
-        SettingViewController *personal = [[SettingViewController alloc] init];
-        [self.navigationController pushViewController:personal animated:YES];
-    }else if (indexPath.row == 0) {
+    
+    if (indexPath.row ==0) {
+        MyWebHomeViewController *webVC = [[MyWebHomeViewController alloc] init];
+        [self.navigationController pushViewController:webVC animated:YES];
+    }else if (indexPath.row == 1) {
         MessageCatViewController *msgListVC = [[MessageCatViewController alloc] init];
         [self.navigationController pushViewController:msgListVC animated:YES];
+    }else if (indexPath.row == 2) {
+        MyAppListViewController *appListVC = [[MyAppListViewController alloc] init];
+        [self.navigationController pushViewController:appListVC animated:YES];
+    }else if (indexPath.row ==3) {
+        MyCardListViewController *cardListVC = [[MyCardListViewController alloc] init];
+        [self.navigationController pushViewController:cardListVC animated:YES];
     }else if (indexPath.row == 4) {
+        MySaveListViewController *saveVC = [[MySaveListViewController alloc] init];
+        [self.navigationController pushViewController:saveVC animated:YES];
+    }else if (indexPath.row == 5) {
         MyInvitationListViewController *invitationVC = [[MyInvitationListViewController alloc] init];
         invitationVC.iStatus = 0;
         [self.navigationController pushViewController:invitationVC animated:YES];
-    }else if (indexPath.row == 3) {
-        MySaveListViewController *saveVC = [[MySaveListViewController alloc] init];
-        [self.navigationController pushViewController:saveVC animated:YES];
-    }    
+    }else if (indexPath.row == 6) {
+        SettingViewController *personal = [[SettingViewController alloc] init];
+        [self.navigationController pushViewController:personal animated:YES];
+    }
 }
 
 
@@ -196,7 +182,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-     [[NSNotificationCenter defaultCenter]removeObserver:self];
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -206,24 +191,4 @@
     personal.delegate = self;
     [self.navigationController pushViewController:personal animated:YES];
 }
-
-- (void)msgNumChange{
-
-    NSLog(@"msgNmuChange");
-    UIImageView *image = (UIImageView *)[self.tableViewCellMessage viewWithTag:2002];
-    UILabel *badgeLabel = (UILabel *)[image subviews][0];
-    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
-    if (totalNum>0) {
-        badgeLabel.text = [[MainModel sharedObject] getNumByIndex:3];
-        image.hidden = NO;
-    }else{
-        image.hidden = YES;
-    }
-}
-
--(void)dealloc{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 @end

@@ -13,6 +13,9 @@
     NSDictionary *_dictResult;
     NSArray *_sortArray;
     int _iSelectedIndex;
+    
+    NSArray *_arrGenders;
+    NSArray *_arrCates;
 }
 
 @end
@@ -31,19 +34,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    _arrGenders = @[@{@"label_id": @"all",@"label_text": @"全部"},@{@"label_id": @"M",@"label_text": @"男"},@{@"label_id": @"F",@"label_text": @"女"}];
+    _arrCates = @[@"全部",@"中模",@"日韩",@"欧美"];
+    
     _sortArray = [[NSArray alloc] initWithObjects:@"评分",@"人气",@"入驻时间", nil];
     
     if (self.type == kByArea) {
         self.title = @"选择城市";
     }else if(self.type == kByIndustry){
         self.title = @"选择行业";
+    }else if(self.type == kByGender){
+        self.title = @"选择性别";
+    } else if(self.type == kByCate){
+        self.title = @"选择类别";
     }else{
         self.title = @"排序方式";
     }
     
     if (self.type!=kBySort) {
         [self getConditionData];
+    }
+    
+    if (self.type == kBySort2) {
+        _sortArray = [[NSArray alloc] initWithObjects:@"评分",@"人气",@"价格", nil];
     }
     
     // Do any additional setup after loading the view from its nib.
@@ -96,10 +110,14 @@
             return arrCity.count;
         }
         
-    } else if(self.type == kByIndustry){
+    }else if(self.type == kByIndustry){
         NSArray *arrIndustries = [_dictResult valueForKey:@"industries"];
         return arrIndustries.count;
-    }else{
+    }else if (self.type == kByGender){
+        return [_arrGenders count];
+    }else if (self.type == kByCate){
+        return [_arrCates count];
+    } else{
         return 3;
     }
     
@@ -137,6 +155,11 @@
         NSArray *arrIndustries = [_dictResult valueForKey:@"industries"];
         NSDictionary *dict = [arrIndustries objectAtIndex:indexPath.row];
         cell.textLabel.text = [dict valueForKey:@"label_text"];
+   }else if(self.type == kByGender){
+       NSDictionary *dict = [_arrGenders objectAtIndex:indexPath.row];
+       cell.textLabel.text = [dict valueForKey:@"label_text"];
+   }else if(self.type == kByCate){
+       cell.textLabel.text = [_arrCates objectAtIndex:indexPath.row];
    }else{
        cell.textLabel.text = [_sortArray objectAtIndex:indexPath.row];
    }
@@ -180,6 +203,13 @@
         NSDictionary *dict = [arrIndustries objectAtIndex:indexPath.row];
         [self.delegate selectWithIndustry:[dict valueForKey:@"label_text"]];
         [self.navigationController popViewControllerAnimated:YES];
+    }else if(self.type == kByGender){//性别
+        NSDictionary *dict = [_arrGenders objectAtIndex:indexPath.row];
+        [self.delegate selectWithGender:dict];
+        [self.navigationController popViewControllerAnimated:YES];
+    }else if(self.type == kByCate){//类别
+        [self.delegate selectWithCate:[_arrCates objectAtIndex:indexPath.row]];
+        [self.navigationController popViewControllerAnimated:YES];
     }else{
         [self.delegate selectWithSort:[_sortArray objectAtIndex:indexPath.row]];
         [self.navigationController popViewControllerAnimated:YES];
@@ -188,6 +218,7 @@
 }
 
 -(void)chooseAreaWithName:(NSString *)str{
+    
     NSDictionary *dictCityes = [_dictResult valueForKey:@"citys"];
     NSArray *arrCity = [dictCityes valueForKey:@"citys"];
     NSDictionary *dict = [arrCity objectAtIndex:_iSelectedIndex];

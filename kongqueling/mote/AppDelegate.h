@@ -10,10 +10,11 @@
 #import "BPush.h"
 #import "MokaTabBarViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,BPushDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,BPushDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *nav;
 @property (strong ,nonatomic) MokaTabBarViewController *mokaTabBar;
+@property (strong ,nonatomic) NSString *downloadurl;
 
 @end

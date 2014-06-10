@@ -101,4 +101,9 @@
 
 +(NSString *)stringUrlCheckUMsg:(NSString *)uid;
 
++(NSString *)stringUrlGetVersion;
+
++(NSString *)stringUrlReportAlbumPhotos:(NSString *)strPids;
+
++(NSString *)stringUrlGetModelListFromLine:(int)page gender:(NSString*)gender cate:(NSString *)cate sort:(NSString *)sort key:(NSString *)key;
 @end

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="默认作品集" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8">
-                        <rect key="frame" x="91" y="4" width="197" height="24"/>
+                        <rect key="frame" x="91" y="4" width="161" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,17 +39,23 @@
                         <color key="textColor" red="0.34901960780000002" green="0.35294117650000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="UITableViewCellDisclosureIndicator.png" id="6">
-                        <rect key="frame" x="296" y="26" width="10" height="13"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="26">
                         <rect key="frame" x="91" y="29" width="78" height="16"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DNY-IQ-cuI">
+                        <rect key="frame" x="250" y="19" width="61" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" backgroundImage="finder_send_invite_bg.png">
+                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="buttonSend" destination="DNY-IQ-cuI" id="oQo-mM-GHN"/>
                 <outlet property="imageViewLogo" destination="5" id="33"/>
                 <outlet property="imageViewRate" destination="26" id="35"/>
                 <outlet property="labelArea" destination="7" id="36"/>
@@ -59,7 +65,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="UITableViewCellDisclosureIndicator.png" width="10" height="13"/>
+        <image name="finder_send_invite_bg.png" width="59" height="31"/>
         <image name="no_image.png" width="75" height="75"/>
     </resources>
 </document>

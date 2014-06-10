@@ -20,6 +20,7 @@
 #define KDictUserInfo @"userdicttype"
 #define KPriceInfo @"priceinfo"
 #define KAlbumId @"aid"
+#define KShareInfo @"shareinfo"
 #define KMsgNum @"msgNum"
 #define KLocation @"cllocation"
 #define KCity @"city"
@@ -38,6 +39,7 @@
 @property(nonatomic, strong) NSArray *arrPriceInfo;
 @property(nonatomic, strong) NSDictionary *dictUserInfo;
 @property (nonatomic, strong) AppDelegate *appDelegate;
+@property(nonatomic, strong) NSDictionary *dictShareInfo;
 
 
 @property(nonatomic, strong) CLLocation *currentLocation;
@@ -59,6 +61,8 @@
 - (void) saveCity: (NSString *)strCity;
 - (void) saveBDUid: (NSString *)strBDUid;
 - (void) saveBDChannelId: (NSString *)strBDChannelId;
+- (void) saveShareInfo: (NSDictionary *)dicShareInfo;
+
 
 - (void)saveMsgNum:(NSString *)firstNum secondNum:(NSString *)secondNum thirdNum:(NSString *)thirdNum;
 - (NSString *)getNumByIndex:(int)index;

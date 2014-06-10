@@ -7,6 +7,7 @@
 //
 
 #import "MessageDetailViewController.h"
+#import "MechantWebViewController.h"
 
 @interface MessageDetailViewController ()
 
@@ -50,7 +51,7 @@
     [self.view addSubview:labelTime];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"]; //
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm"]; //
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[[_msgInfo objectForKey:@"add_time"] intValue]];
     NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
     labelTime.text = confromTimespStr;
@@ -70,6 +71,15 @@
     [self.view addSubview:txtDesc];
     
     if (_msgTypeId==3) {
+        
+        UIButton *linkbt=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+        linkbt.frame=CGRectMake(110,[UIScreen mainScreen].bounds.size.height-180, 100, 40);
+        [linkbt setTitle:@"查看机构详细" forState:(UIControlStateNormal)];
+        linkbt.tag = [[_msgInfo objectForKey:@"otherinfo"] intValue];
+        [linkbt addTarget:self action:@selector(clickDetail:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:linkbt];
+        
+        
         
         if ([[_msgInfo objectForKey:@"status"] isEqualToString:@"0"]) {
             UIButton *acceptbtn=[UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -120,6 +130,14 @@
     } andFailureBlock:^(NSError *error) {
         
     }];
+}
+
+- (void)clickDetail:(UIButton *)bt{
+    MechantWebViewController *mwvc = [[MechantWebViewController alloc] init];
+    
+    NSString *weburl = [NSString stringWithFormat:@"http://www.tupai.cc/shopkql.html?id=%d",bt.tag];
+    mwvc.url = weburl;
+    [self.navigationController pushViewController:mwvc animated:YES];
 }
 
 -(void)onAction:(UIButton *)bt{

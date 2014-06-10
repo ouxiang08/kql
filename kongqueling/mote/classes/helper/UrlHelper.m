@@ -81,6 +81,12 @@
     return strURL;
 }
 
++(NSString *)stringUrlReportAlbumPhotos:(NSString *)strPids{
+    NSString *strURL = [NSString stringWithFormat:@"%@/rptalbumphotos?pids=%@&",KHomeUrlDefault,strPids];
+    strURL = [self addCommonParameter:strURL];
+    return strURL;
+}
+
 +(NSString *)stringUrlMovePhotos{
     NSString *strURL = [NSString stringWithFormat:@"%@/movephotos",KHomeUrlDefault];
     return strURL;
@@ -261,6 +267,18 @@
 +(NSString *)stringUrlCheckUMsg:(NSString *)uid{
     NSString *strURL = [NSString stringWithFormat:@"%@/getusermsg?",KHomeUrlDefault];
     strURL = [self addCommonParameter:strURL];
+    return strURL;
+}
+
++(NSString *)stringUrlGetVersion{
+    NSString *strURL = [NSString stringWithFormat:@"%@/version?device=ios&",KHomeUrlDefault];
+    strURL = [self addCommonParameter:strURL];
+    return strURL;
+}
+
++(NSString *)stringUrlGetModelListFromLine:(int)page gender:(NSString*)gender cate:(NSString *)cate sort:(NSString *)sort key:(NSString *)key{
+    NSString *strURL = [NSString stringWithFormat:@"%@/modellist?from=%d&gender=%@&cate=%@&sort=%@&key=%@",KHomeUrlDefault,page,gender,cate,sort,key];
+    //strURL = [self addCommonParameter:strURL];
     return strURL;
 }
 @end

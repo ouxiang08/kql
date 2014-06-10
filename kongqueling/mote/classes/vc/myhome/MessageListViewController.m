@@ -151,7 +151,7 @@
     UILabel *labelDetail = (UILabel *)[cell.contentView subviews][3];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"]; //
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm"]; //
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[[dic objectForKey:@"add_time"] intValue]];
     NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
     labelTime.text = confromTimespStr;

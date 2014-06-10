@@ -251,7 +251,7 @@
 
 - (void)selectPic:(UIImage*)image
 {
-    UIImage *resizeImg = [[image fixOrientation] scaleToFixedSize:CGSizeMake(200,200)];
+    UIImage *resizeImg = [[image fixOrientation] scaleToFixedSize:CGSizeMake(300,300)];
     UpYun *uy = [[UpYun alloc] init];
     uy.successBlocker = ^(id data)
     {

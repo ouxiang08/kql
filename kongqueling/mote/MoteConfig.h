@@ -63,7 +63,7 @@
 #define KTestAccountPwd @"tupai2013"
 
 #define kMessageDidChangeNofication @"kMessageDidChangeNofication"
-
+#define kLoginNofication @"kLoginNofication"
 @interface MoteConfig : NSObject 
 
 @end

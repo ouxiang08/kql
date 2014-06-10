@@ -64,30 +64,14 @@ static UIView* viewShare;
     [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     self.nav.navigationBar.titleTextAttributes = navBarTextAttributes;
     
-
-    
-    
-    if (![MainModel sharedObject].strUid) {
-        StartPageViewController *rsVC = [[StartPageViewController alloc] init];
-        //LoginViewController *loginVC = [[LoginViewController alloc] init];
-        UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+    NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
+    NSURL *query = [NSURL URLWithString:strUrl];
+    NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
+    if ([uid isEqualToString:@"1"]) {
+        [self.mokaTabBar touchDownAtItemAtIndex:1];
+        [self.mokaTabBar touchDownAtItemAtIndex:0];
         
-        NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
-        [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-        navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
-        //App第一次启动的时候，初始化badge's number
-        [[MainModel sharedObject] saveMsgNum:@"0" secondNum:@"0" thirdNum:@"0"];
-        
-        [self.nav presentViewController:navStart animated:NO completion:^(void){}];
-    }else{
-        
-        NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
-        NSURL *query = [NSURL URLWithString:strUrl];
-        NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
-        if ([uid isEqualToString:@"1"]) {
-            [self.mokaTabBar touchDownAtItemAtIndex:1];
-            [self.mokaTabBar touchDownAtItemAtIndex:0];
-            
+        if ([[MainModel sharedObject].strUid length]>0) {
             NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
             NSURL *query2 = [NSURL URLWithString:strUrl2];
             NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
@@ -99,17 +83,65 @@ static UIView* viewShare;
             if (totalNum>0) {
                 [self.mokaTabBar setBadgeNumer:3 number:totalNum];
             }
-        }else{
-            StartPageViewController *rsVC = [[StartPageViewController alloc] init];
-            //LoginViewController *loginVC = [[LoginViewController alloc] init];
-            UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
-            NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
-            [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-            navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
-            
-            [self.nav presentViewController:navStart animated:NO completion:^(void){}];
         }
     }
+    
+//    else{
+//        StartPageViewController *rsVC = [[StartPageViewController alloc] init];
+//        //LoginViewController *loginVC = [[LoginViewController alloc] init];
+//        UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+//        NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+//        [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+//        navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+//        
+//        [self.nav presentViewController:navStart animated:NO completion:^(void){}];
+//    }
+    
+//    if (![MainModel sharedObject].strUid) {
+//        StartPageViewController *rsVC = [[StartPageViewController alloc] init];
+//        //LoginViewController *loginVC = [[LoginViewController alloc] init];
+//        UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+//        
+//        NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+//        [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+//        navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+//        //App第一次启动的时候，初始化badge's number
+//        [[MainModel sharedObject] saveMsgNum:@"0" secondNum:@"0" thirdNum:@"0"];
+//        
+//        [self.nav presentViewController:navStart animated:NO completion:^(void){}];
+//    }else{
+//        
+//        NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
+//        NSURL *query = [NSURL URLWithString:strUrl];
+//        NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
+//        if ([uid isEqualToString:@"1"]) {
+//            [self.mokaTabBar touchDownAtItemAtIndex:1];
+//            [self.mokaTabBar touchDownAtItemAtIndex:0];
+//            
+//            if ([[MainModel sharedObject].strUid length]>0) {
+//                NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+//                NSURL *query2 = [NSURL URLWithString:strUrl2];
+//                NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+//                NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+//                //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+//                /*------------------------------------------jiajingjing--------------------------------------------------*/
+//                [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
+//                int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+//                if (totalNum>0) {
+//                    [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+//                }
+//            }
+//        }else{
+//            StartPageViewController *rsVC = [[StartPageViewController alloc] init];
+//            //LoginViewController *loginVC = [[LoginViewController alloc] init];
+//            UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+//            NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+//            [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+//            navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+//            
+//            [self.nav presentViewController:navStart animated:NO completion:^(void){}];
+//        }
+//    }
     
     if (![[MainModel sharedObject] location]) {
         [[MainModel sharedObject] startPosition];
@@ -186,16 +218,18 @@ static UIView* viewShare;
 //        [alertView show];
 //    }
     
-    NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
-    NSURL *query2 = [NSURL URLWithString:strUrl2];
-    NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
-    NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
-    //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
-    /*------------------------------------------jiajingjing--------------------------------------------------*/
-    [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
-    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
-    if (totalNum>0) {
-        [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+    if ([[MainModel sharedObject].strUid length]>0) {
+        NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+        NSURL *query2 = [NSURL URLWithString:strUrl2];
+        NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+        NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+        //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+        /*------------------------------------------jiajingjing--------------------------------------------------*/
+        [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
+        int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+        if (totalNum>0) {
+            [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+        }
     }
     
     [application setApplicationIconBadgeNumber:0];
@@ -276,17 +310,47 @@ static UIView* viewShare;
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
-    NSURL *query2 = [NSURL URLWithString:strUrl2];
-    NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
-    NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
-    //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
-    /*------------------------------------------jiajingjing--------------------------------------------------*/
-    [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
-    int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
-    if (totalNum>0) {
-        [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+    
+    NSString *strUrl = [UrlHelper stringUrlGetVersion];
+    NSString *umsg = [NSString stringWithContentsOfURL:[NSURL URLWithString:strUrl] encoding:NSUTF8StringEncoding error:nil];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *nowversion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSDictionary *msgarr = [umsg JSONValue];
+    NSString *newversion = [msgarr objectForKey:@"ver"];
+    if (![nowversion isEqualToString:newversion]) {
+        _downloadurl = [msgarr objectForKey:@"downloadurl"];
+        UIAlertView*alert = [[UIAlertView alloc]initWithTitle:[msgarr objectForKey:@"title"]
+                                                      message:[msgarr objectForKey:@"message"]
+                                                     delegate:self
+                                            cancelButtonTitle:@"稍后提醒"
+                                            otherButtonTitles:@"现在更新",nil];
+        [alert show];
     }
+    
+    
+    if ([[MainModel sharedObject].strUid length]>0) {
+        NSString *strUrl2 = [UrlHelper stringUrlCheckUMsg:[MainModel sharedObject].strUid];
+        NSURL *query2 = [NSURL URLWithString:strUrl2];
+        NSString *umsg = [NSString stringWithContentsOfURL:query2 encoding:NSUTF8StringEncoding error:nil];
+        NSArray *msgarr = [umsg componentsSeparatedByString:@"-"];
+        //NSArray *msgarr = [NSArray arrayWithObjects:@"3",@"2",@"1", nil];
+        /*------------------------------------------jiajingjing--------------------------------------------------*/
+        [[MainModel sharedObject] saveMsgNum:[msgarr objectAtIndex:0] secondNum:[msgarr objectAtIndex:1] thirdNum:[msgarr objectAtIndex:2]];
+        int totalNum = [[[MainModel sharedObject] getNumByIndex:3] intValue];
+        if (totalNum>0) {
+            [self.mokaTabBar setBadgeNumer:3 number:totalNum];
+        }
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex!=0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_downloadurl]];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -18,6 +18,7 @@
 @property(nonatomic, strong) IBOutlet UITableViewCell *tableViewCellInvitation;
 @property(nonatomic, strong) IBOutlet UITableViewCell *tableViewCellDangqi;
 @property(nonatomic, strong) IBOutlet UITableViewCell *tableViewCellPersonal;
+@property (strong, nonatomic) IBOutlet UITableViewCell *tableViewCellMyWeb;
 
 @property(nonatomic, strong) IBOutlet UITableView *tableViewHome;
 

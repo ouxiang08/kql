@@ -236,7 +236,7 @@
         if ([self.textFieldPengPaiByDay.text isNotNilOrBlankString]&&[self.textFieldPengPaiByUnit.text isNotNilOrBlankString]) {
             NSString *strPrice = [NSString stringWithFormat:@"%@,%@",self.textFieldPengPaiByDay.text,self.textFieldPengPaiByUnit.text];
             [_dictParameter setObject:strPrice forKey:@"price"];
-            [_dictParameter setObject:@"p,d" forKey:@"unittype"];
+            [_dictParameter setObject:@"d,p" forKey:@"unittype"];
             
             [self requestDataCommon:_dictParameter];
         }else if([self.textFieldPengPaiByDay.text isNotNilOrBlankString]){

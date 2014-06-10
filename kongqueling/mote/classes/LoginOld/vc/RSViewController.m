@@ -127,6 +127,8 @@
                 [[MainModel sharedObject] saveUserType:[dictUserInfo valueForKey:@"usertype"]];
                 [[MainModel sharedObject] saveDictUserInfo:dictUserInfo];
                 [[MainModel sharedObject] savePriceInfo:arrPriceInfo];
+                [[MainModel sharedObject] saveDictUserInfo:dictUserInfo];
+                [[MainModel sharedObject] saveShareInfo:[dictResponse valueForKey:@"share"]];
                 
                 [[MainModel sharedObject] saveUserName:self.userText.text];
                 [[MainModel sharedObject] savePassword:self.passText.text];

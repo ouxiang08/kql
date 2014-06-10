@@ -11,16 +11,24 @@
 typedef enum{
     kByArea = 0,
     kByIndustry =1,
-    kBySort =2
+    kBySort =2,
+    kByGender = 3,
+    kByCate = 4,
+    kBySort2 =2
 }ConditionType;
 
 @protocol ConditionSelectedDelegate <NSObject>
+
+@optional
 
 -(void)selectWithArea:(NSString *)strArea isHotCity:(BOOL)isHotCity;
 -(void)selectWithArea:(NSString *)strArea andCity:(NSString *)strCity isHotCity:(BOOL)isHotCity;
 -(void)selectWithIndustry:(NSString *)strIndustry;
 -(void)selectWithSort:(NSString *)strSort;
 -(void)selectWithCity:(NSString *)strCity;
+
+-(void)selectWithGender:(NSDictionary *)dict;
+-(void)selectWithCate:(NSString *)strCate;
 
 @end
 

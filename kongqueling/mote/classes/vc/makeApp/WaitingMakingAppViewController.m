@@ -45,8 +45,7 @@
 //    [_imgvCycle.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     [self rotate360DegreeWithImageView:self.imgvCycle];
     
-    //临时方案
-    //[self makingApp];
+    [self makingApp];
     
    
     
@@ -57,7 +56,7 @@
     [_imgvCycle.layer addAnimation:spinAnimation forKey:@"spinAnimation"];
      */
 }
-
+/*
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
@@ -72,7 +71,7 @@
     makingSucccessViewController.apptitle = self.strAppName;
     [nav pushViewController:makingSucccessViewController animated:YES];
 }
-
+*/
 - (UIImageView *)rotate360DegreeWithImageView:(UIImageView *)imageView{
     CABasicAnimation *animation = [CABasicAnimation
                                    animationWithKeyPath: @"transform"];

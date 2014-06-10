@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GirlModel.h"
 
-@interface SquareCellView : UIView
+@interface ModelCellView : UIView
 
+@property (strong, nonatomic) GirlModel *model;
+
+- (void)prepareForReuse;
+- (id)initWIthModel:(GirlModel *)gModels;
+- (void)loadSubviews;
 @end

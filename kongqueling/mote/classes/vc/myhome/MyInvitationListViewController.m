@@ -79,32 +79,20 @@
     
     /*--------------------------------jiajingjing------------------------------------------*/
     int isInvited = [[dict valueForKey:@"invite_status"] intValue];
-    UIImage *inviteImage = [UIImage imageNamed:@"inviteStatu"];
-    UIImageView *inviteImageView = [[UIImageView alloc] initWithImage:inviteImage];
-    inviteImageView.frame = CGRectMake(238, 26, 45, 21);
-    inviteImageView.tag = 1024;
-    UILabel *inviteLabel = [[UILabel alloc]initWithFrame:inviteImageView.bounds];
-    inviteLabel.textAlignment = NSTextAlignmentCenter;
-    inviteLabel.backgroundColor = [UIColor clearColor];
-    inviteLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    inviteLabel.textColor = [UIColor blackColor];
-    [inviteImageView addSubview:inviteLabel];
-    
-    UIImageView *oldImageView = (UIImageView *)[contentCell viewWithTag:1024];
-    
     if (isInvited==1) {
-        inviteLabel.text = @"已通过";
+        contentCell.buttonSend.hidden = NO;
+        [contentCell.buttonSend setTitle:@"已通过" forState:UIControlStateNormal];
     }else if (isInvited==-1){
-        inviteLabel.text = @"已拒绝";
+        contentCell.buttonSend.hidden = NO;
+        [contentCell.buttonSend setTitle:@"已拒绝" forState:UIControlStateNormal];
     }else if (isInvited==0){
-        inviteLabel.text = @"待回复";
+        contentCell.buttonSend.hidden = NO;
+        [contentCell.buttonSend setTitle:@"待回复" forState:UIControlStateNormal];
+    }else{
+        contentCell.buttonSend.hidden = YES;
+        contentCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
-    if (oldImageView) {
-        [oldImageView removeFromSuperview];
-    }
-    
-    [contentCell addSubview:inviteImageView];
+
     
     int score = [[dict valueForKey:@"score"] integerValue];
     if (score == 0) {

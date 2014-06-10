@@ -65,7 +65,7 @@
 }
 
 -(void)onEditPicture{    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"设为封面",@"分享",@"删除", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"设为封面",@"分享",@"删除",@"举报",  nil];
     [actionSheet showInView:self.view];
 }
 
@@ -104,9 +104,26 @@
                                 }];
     }else if(buttonIndex == 2){
         [self deletePhoto];
+    }else if(buttonIndex == 3){
+        [self reportPhoto];
     }else{
         
     }
+}
+
+-(void)reportPhoto{
+    NSString *strUrl = [UrlHelper stringUrlReportAlbumPhotos:[NSString stringWithFormat:@"%d",self.photoModel.pid]];
+    [self requestDataWithUrl:strUrl successBlock:^(NSDictionary *dictResponse) {
+        NSLog(@"dictResponse:%@",dictResponse);
+        
+        self.maskView.hidden = YES;
+        NSInteger errorNo = [[dictResponse valueForKey:@"code"] integerValue];
+        if (errorNo == 1) {
+            [[ToastViewAlert defaultCenter] postAlertWithMessage:@"图片举报成功！"];
+        }
+    } andFailureBlock:^(NSError *error) {
+        NSLog(@"err:%@",[error localizedDescription]);
+    }];
 }
 
 -(void)deletePhoto{
