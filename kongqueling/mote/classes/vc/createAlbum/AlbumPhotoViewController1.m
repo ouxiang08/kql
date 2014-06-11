@@ -142,8 +142,18 @@
         id<ISSContainer> container = [ShareSDK container];
         [container setIPhoneContainerWithViewController:self];
         
+        //指定要分享的平台
+        NSArray *shareList = [ShareSDK getShareListWithType:
+                              ShareTypeWeixiSession,
+                              ShareTypeWeixiTimeline,
+                              ShareTypeSinaWeibo,
+                              ShareTypeTencentWeibo,
+                              ShareTypeQQ,
+                              ShareTypeCopy,
+                              nil];
+        
         [ShareSDK showShareActionSheet:container
-                             shareList:nil
+                             shareList:shareList
                                content:publishContent
                          statusBarTips:YES
                            authOptions:nil

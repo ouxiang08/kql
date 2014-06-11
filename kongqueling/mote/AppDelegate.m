@@ -54,11 +54,9 @@ static UIView* viewShare;
     
     [application setApplicationIconBadgeNumber:0];
 
-    
     self.mokaTabBar = [[MokaTabBarViewController alloc] init];
     self.nav = [[WCCNavigationController alloc] initWithRootViewController:self.mokaTabBar];
     self.window.rootViewController = self.nav;
-    
     
     NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
     [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
@@ -142,6 +140,8 @@ static UIView* viewShare;
 //            [self.nav presentViewController:navStart animated:NO completion:^(void){}];
 //        }
 //    }
+    
+     [self.mokaTabBar touchDownAtItemAtIndex:0];
     
     if (![[MainModel sharedObject] location]) {
         [[MainModel sharedObject] startPosition];

@@ -134,7 +134,7 @@
                 [[MainModel sharedObject] savePassword:self.passText.text];
                 
                 [self.navigationController dismissViewControllerAnimated:NO completion:^(void){}];
-                [[MainModel sharedObject].appDelegate.mokaTabBar touchDownAtItemAtIndex:0];
+                //[[MainModel sharedObject].appDelegate.mokaTabBar touchDownAtItemAtIndex:0];
 //                UINavigationController *navStart = self.navigationController;
 //                [navStart popViewControllerAnimated:NO];
 //                

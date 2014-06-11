@@ -31,7 +31,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(login) name:kLoginNofication object:nil];
         // Custom initialization
-        SquareViewController *piazzaVC = [[SquareViewController alloc] init];
+        SquareViewController *squareVC = [[SquareViewController alloc] init];
         MyArtListViewController *artVC = [[MyArtListViewController alloc] init];
         //MyTaskListViewController *taskVC = [[MyTaskListViewController alloc] init];
         MyFinderViewController *finderVC = [[MyFinderViewController alloc] init];
@@ -39,7 +39,7 @@
         
 		
         self.viewControllers = [NSArray arrayWithObjects:
-                                piazzaVC,
+                                squareVC,
                                 artVC,
                                 finderVC,
 								homeVC, nil];
@@ -110,10 +110,7 @@
     
     if ((selectedIndex==1||selectedIndex==3)) {
         //[[ToastViewAlert defaultCenter] postAlertWithMessage:@"您的账户没有此权限"];
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//        alertView.delegate = self;
-//        alertView.tag = 4;
-//        [alertView show];
+
     }else{
         [super setSelectedIndex:selectedIndex];
        // [self updateNavigationItem];
