@@ -22,10 +22,14 @@
 
 @implementation MokaTabBarViewController
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(login) name:kLoginNofication object:nil];
         // Custom initialization
         SquareViewController *piazzaVC = [[SquareViewController alloc] init];
         MyArtListViewController *artVC = [[MyArtListViewController alloc] init];
@@ -68,7 +72,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:kLoginNofication];
 }
 
 #pragma mark - CustomTabBarDelegate
@@ -133,17 +137,19 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 1&&alertView.tag == 4) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:kLoginNofication object:nil];
-        
-        StartPageViewController *rsVC = [[StartPageViewController alloc] init];
-        //LoginViewController *loginVC = [[LoginViewController alloc] init];
-        UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
-        NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
-        [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-        navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
-        
-        [self presentViewController:navStart animated:NO completion:^(void){}];
+        [self login];
     }
+}
+
+- (void)login{
+
+    StartPageViewController *rsVC = [[StartPageViewController alloc] init];
+    UINavigationController *navStart = [[WCCNavigationController alloc] initWithRootViewController:rsVC];
+    NSMutableDictionary *navBarTextAttributes = [NSMutableDictionary dictionaryWithCapacity:1];
+    [navBarTextAttributes setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    navStart.navigationBar.titleTextAttributes = navBarTextAttributes;
+    
+    [self presentViewController:navStart animated:NO completion:^(void){}];
 }
 
 @end

@@ -11,7 +11,7 @@
 #import "SendInvitationViewController.h"
 #import "MechantWebViewController.h"
 
-@interface MyMerchantListViewController ()<SendInvitationDelegate>{
+@interface MyMerchantListViewController ()<SendInvitationDelegate,UIAlertViewDelegate>{
     NSDictionary *_dictDetail;
 }
 
@@ -155,6 +155,9 @@
         if (alertView.tag==2) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",[_dictDetail valueForKey:@"tel"] ]]];
         }
+        if (alertView.tag == 4) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginNofication object:nil];
+        }
     }
 }
 
@@ -168,23 +171,46 @@
 #pragma mark - IBActions
 
 -(IBAction)onSendClick:(id)sender{
-    SendInvitationViewController *sendInvitationVC = [[SendInvitationViewController alloc] init];
-    sendInvitationVC.strMid = [_dictDetail valueForKey:@"sid"];
-    sendInvitationVC.delegate = self;
-    [self.navigationController pushViewController:sendInvitationVC animated:YES];
+    
+    NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
+    NSURL *query = [NSURL URLWithString:strUrl];
+    NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
+    
+    if ([uid isEqualToString:@"1"]) {
+        SendInvitationViewController *sendInvitationVC = [[SendInvitationViewController alloc] init];
+        sendInvitationVC.strMid = [_dictDetail valueForKey:@"sid"];
+        sendInvitationVC.delegate = self;
+        [self.navigationController pushViewController:sendInvitationVC animated:YES];
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alertView.delegate = self;
+        alertView.tag = 4;
+        [alertView show];
+    }
 }
 
 -(IBAction)onSaveClick:(id)sender{
-    NSString *strUrl = [UrlHelper stringUrlSetMfav];
-    NSMutableDictionary *dictParameter = [NSMutableDictionaryFactory getMutableDictionary];
-    [dictParameter setObject:[_dictDetail valueForKey:@"sid"] forKey:@"mid"];
-    [self actionRequestWithUrl:strUrl parameters:dictParameter successBlock:^(NSDictionary *dictResponse) {
-        self.maskView.hidden = YES;
-        self.buttonSave.enabled = NO;
-        [self.buttonSave setTitle:@"已收藏" forState:UIControlStateNormal];
-    } andFailureBlock:^(NSError *error) {
+    
+    NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
+    NSURL *query = [NSURL URLWithString:strUrl];
+    NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
+    
+    if ([uid isEqualToString:@"1"]) {
+        NSString *strUrl = [UrlHelper stringUrlSetMfav];
+        NSMutableDictionary *dictParameter = [NSMutableDictionaryFactory getMutableDictionary];
+        [dictParameter setObject:[_dictDetail valueForKey:@"sid"] forKey:@"mid"];
+        [self actionRequestWithUrl:strUrl parameters:dictParameter successBlock:^(NSDictionary *dictResponse) {
+            self.maskView.hidden = YES;
+            self.buttonSave.enabled = NO;
+            [self.buttonSave setTitle:@"已收藏" forState:UIControlStateNormal];
+        } andFailureBlock:^(NSError *error) {}];
+    }else{
         
-    }];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alertView.delegate = self;
+        alertView.tag = 4;
+        [alertView show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -207,4 +233,6 @@
 
 - (IBAction)clickMemberP:(id)sender {
 }
+
+
 @end
