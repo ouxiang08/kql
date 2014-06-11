@@ -12,7 +12,7 @@
 
 - (id)initWithDictionary:(NSDictionary *) dict{
     self = [super init];
-	_gid = [[dict valueForKey:@"id"] integerValue];
+	_uid = [[dict valueForKey:@"id"] integerValue];
 	_nickName = [dict valueForKey:@"nickname"] ;
 	_gender = [dict valueForKey:@"gender"] ;
 	_city = [dict valueForKey:@"city"] ;

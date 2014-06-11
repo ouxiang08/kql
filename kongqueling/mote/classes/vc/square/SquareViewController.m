@@ -9,11 +9,13 @@
 #import "SquareViewController.h"
 #import "ModelCellView.h"
 #import "FinderConditionListViewController.h"
+#import "MyWebHomeViewController.h"
+
 #define ModelViewWidth 146
 #define ModelViewHeight 205
 #define ModelViewMargin 10
 
-@interface SquareViewController ()<UIScrollViewDelegate,ConditionSelectedDelegate,UITextFieldDelegate>{
+@interface SquareViewController ()<UIScrollViewDelegate,ConditionSelectedDelegate,UITextFieldDelegate,ModelCellViewDelegate>{
 
     NSUInteger _ModelViewCount;
     
@@ -93,10 +95,11 @@
         [self requestDataWithUrl:urlModelStr successBlock:^(NSDictionary *dictResponse) {
             
             self.maskView.hidden = YES;
-            [_modelListArray removeAllObjects];
+            
             _from = [[dictResponse objectForKey:@"next"] integerValue];
             NSArray *array= [dictResponse objectForKey:@"rows"];
             NSMutableArray *configArray = [[NSMutableArray alloc] init];
+            
             for (NSDictionary *dict in array) {
                 GirlModel *mode = [[GirlModel alloc] initWithDictionary:dict];
                 [configArray addObject:mode];
@@ -160,6 +163,7 @@
         modelView.frame = [self frameForModelViewAtIndex:i];
         modelView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"modelCellBg"]];
         modelView.model = [_modelListArray objectAtIndex:i];
+        modelView.delegate = self;
         [modelView loadSubviews];
         [_pagingScrollView addSubview:modelView];
     }
@@ -233,19 +237,22 @@
 
 -(void)selectWithGender:(NSDictionary *)dict{
     _gender = [dict valueForKey:@"label_id"];
-    
+    _from = 1;
+    [_modelListArray removeAllObjects];
     [self.buttonGender setTitle:[dict valueForKey:@"label_text"] forState:UIControlStateNormal];
     [self loadModelList];
 }
 -(void)selectWithCate:(NSString *)strCate{
     _cate = strCate;
-    
+    _from = 1;
+    [_modelListArray removeAllObjects];
     [self.buttonCate setTitle:_cate forState:UIControlStateNormal];
     [self loadModelList];
 }
 -(void)selectWithSort:(NSString *)strSort{
     _sort = strSort;
-    
+    _from = 1;
+    [_modelListArray removeAllObjects];
     [self.buttonDefault setTitle:_sort forState:UIControlStateNormal];
     [self loadModelList];
 }
@@ -257,13 +264,26 @@
     if (_pagingScrollView.contentOffset.y + _pagingScrollView.frame.size.height > _pagingScrollView.contentSize.height && _pagingScrollView && _pagingScrollView.contentOffset.y > 10.0f) {
         [self loadModelList];
     }
-    
 }
 
 #pragma mark - UITextFieldDelegate Methods
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    _from = 1;
+    [_modelListArray removeAllObjects];
     [self loadModelList];
     [_txtSearch resignFirstResponder];
     return YES;
 }
+
+#pragma mark - ModelCellViewDelegate Methods
+
+- (void)didSeletedModelViewWith:(NSUInteger)uid{
+    
+    MyWebHomeViewController *webVC = [[MyWebHomeViewController alloc] init];
+    webVC.uid = [NSString stringWithFormat:@"%d",uid];
+    [self.navigationController pushViewController:webVC animated:YES];
+}
+
+
 @end

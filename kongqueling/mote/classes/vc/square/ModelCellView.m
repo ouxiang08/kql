@@ -62,9 +62,9 @@
     [self addSubview:_avatarImgV];
     //姓名
     _nameLbl = [[UILabel alloc] init];
-    CGFloat leftWidth = [self sizeForLalbelWithContont:model.nickName andFontSize:15.0f].width;
-    CGFloat nameWidth = leftWidth>70 ? 70 : leftWidth;
-    _nameLbl.frame = CGRectMake(5, 138, nameWidth, 24);
+    CGSize  nameSize = [self sizeForLalbelWithContont:model.nickName andFontSize:15.0f];
+    CGFloat nameWidth = nameSize.width>70 ? 70 : nameSize.width;
+    _nameLbl.frame = CGRectMake(5, 138, nameWidth, nameSize.height);
     _nameLbl.backgroundColor = [UIColor clearColor];
     _nameLbl.textColor = [UIColor blackColor];
     _nameLbl.font = [UIFont systemFontOfSize:15.0f];
@@ -89,7 +89,7 @@
             
             genderImg = [UIImage imageNamed:@"female_small"];
         }
-        _genderImgV.frame = CGRectMake(nameWidth+10, 143, genderImg.size.width, genderImg.size.height);
+        _genderImgV.frame = CGRectMake(nameWidth+5, 143, genderImg.size.width, genderImg.size.height);
     }else{
         if (model.age > 0) {
             
@@ -99,13 +99,15 @@
         }else{
             genderImg = [UIImage imageNamed:@"male_small"];
         }
-        _genderImgV.frame = CGRectMake(nameWidth+10, 143, genderImg.size.width, genderImg.size.height);
+        _genderImgV.frame = CGRectMake(nameWidth+5, 143, genderImg.size.width, genderImg.size.height);
     }
     _genderImgV.image = genderImg;
     [self addSubview:_genderImgV];
     //居住地
     _cityLbl = [[UILabel alloc] init];
-    _cityLbl.frame = CGRectMake(110, 138, 36, 28);
+    CGSize citySize = [self sizeForLalbelWithContont:model.city andFontSize:14.0f];
+    CGFloat cityWidth = citySize.width>45 ? 45 : citySize.width;
+    _cityLbl.frame = CGRectMake(avatarImgWidth-cityWidth, 138, cityWidth, citySize.height);
     _cityLbl.backgroundColor = [UIColor clearColor];
     _cityLbl.textColor = [UIColor blackColor];
     _cityLbl.font = [UIFont systemFontOfSize:14.0f];
@@ -143,23 +145,28 @@
     _bWHLbl.text = [NSString stringWithFormat:@"%@cm/%@kg",model.height,model.weight];
     [self addSubview:_bWHLbl];
     
-    _priceLbl = [[UILabel alloc] init];
-    _priceLbl.frame = CGRectMake(10, 182, 50, 36);
-    _priceLbl.textColor = [UIColor colorWithRed:255 green:139 blue:35 alpha:0];
-    _priceLbl.font = [UIFont systemFontOfSize:16.0f];
-    _priceLbl.text = [NSString stringWithFormat:@"￥%@",model.price];
-    [self addSubview:_priceLbl];
-    
+    if ([model.price isNotNilOrBlankString]) {
+        NSString *priStr = [NSString stringWithFormat:@"￥%@",model.price];
+        CGSize priceSize = [self sizeForLalbelWithContont:priStr andFontSize:16.0f];
+        _priceLbl = [[UILabel alloc] init];
+        _priceLbl.frame = CGRectMake(10, 182, priceSize.width, priceSize.height);
+        //_priceLbl.textColor = [UIColor colorWithRed:255 green:139 blue:35 alpha:0];
+        _priceLbl.textColor = [UIColor orangeColor];
+        _priceLbl.font = [UIFont systemFontOfSize:16.0f];
+        _priceLbl.text = [NSString stringWithFormat:@"￥%@",model.price];
+        [self addSubview:_priceLbl];
+    }
     //是否是Vip
     if (model.isVip==1) {
         _vipImgV = [[UIImageView alloc] init];
         _vipImgV.frame = CGRectMake(125, 182, 15, 15);
+        _vipImgV.image = [UIImage imageNamed:@"π"];
         [self addSubview:_vipImgV];
     }
-
 }
 
 - (void)prepareForReuse {
+    
     self.model = nil;
     _avatarImgV.image = nil;
     _nameLbl = nil;
@@ -178,6 +185,22 @@
     return size;
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	NSUInteger tapCount = touch.tapCount;
+	switch (tapCount) {
+		case 1:
+			[self handleSingleTap:touch];
+			break;
+		default:
+			break;
+	}
+	[[self nextResponder] touchesEnded:touches withEvent:event];
+}
+- (void)handleSingleTap:(UITouch *)touch {
+	if ([_delegate respondsToSelector:@selector(didSeletedModelViewWith:)])
+		[_delegate didSeletedModelViewWith:model.uid];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

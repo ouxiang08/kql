@@ -10,7 +10,7 @@
 
 @interface GirlModel : NSObject
 
-@property(nonatomic, assign) int gid;
+@property(nonatomic, assign) int uid;
 @property(nonatomic, strong) NSString *nickName;
 @property(nonatomic, strong) NSString *gender;
 @property(nonatomic, strong) NSString *city;

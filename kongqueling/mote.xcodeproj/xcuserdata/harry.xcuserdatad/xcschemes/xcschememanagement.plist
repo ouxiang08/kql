@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>mote copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>mote.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>148B07DF1828C0EE00F17369</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A37943B192A023B00A829D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -68,7 +68,7 @@ static UIView* viewShare;
     NSURL *query = [NSURL URLWithString:strUrl];
     NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
     if ([uid isEqualToString:@"1"]) {
-        [self.mokaTabBar touchDownAtItemAtIndex:1];
+        //[self.mokaTabBar touchDownAtItemAtIndex:1];
         [self.mokaTabBar touchDownAtItemAtIndex:0];
         
         if ([[MainModel sharedObject].strUid length]>0) {

@@ -9,9 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "GirlModel.h"
 
+
+@protocol ModelCellViewDelegate <NSObject>
+
+@optional
+
+- (void)didSeletedModelViewWith:(NSUInteger)uid;
+
+@end
+
 @interface ModelCellView : UIView
 
 @property (strong, nonatomic) GirlModel *model;
+
+@property(nonatomic,assign) id<ModelCellViewDelegate> delegate;
 
 - (void)prepareForReuse;
 - (id)initWIthModel:(GirlModel *)gModels;

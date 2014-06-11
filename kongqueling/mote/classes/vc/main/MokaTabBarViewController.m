@@ -81,8 +81,15 @@
 {
     int otheruid = [[[MainModel sharedObject].dictUserInfo valueForKey:@"otheruid"] intValue];
     
-    if (otheruid>0 && ([selectedViewController isKindOfClass:[SquareViewController class]] || [selectedViewController isKindOfClass:[MyTaskListViewController class]])) {
-//        [[ToastViewAlert defaultCenter] postAlertWithMessage:@"对不起，您没有该模块的权限"];
+    NSString *strUrl = [UrlHelper stringUrlCheckUid:[MainModel sharedObject].strUid];
+    NSURL *query = [NSURL URLWithString:strUrl];
+    NSString *uid = [NSString stringWithContentsOfURL:query encoding:NSUTF8StringEncoding error:nil];
+    
+    if (![uid isEqualToString:@"1"]&&([selectedViewController isKindOfClass:[MyHomeViewController class]] || [selectedViewController isKindOfClass:[MyArtListViewController class]])) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alertView.delegate = self;
+        alertView.tag = 4;
+        [alertView show];
         
     }else{
         self.navigationItem.title = selectedViewController.navigationItem.title;
@@ -99,10 +106,10 @@
     
     if ((selectedIndex==1||selectedIndex==3)) {
         //[[ToastViewAlert defaultCenter] postAlertWithMessage:@"您的账户没有此权限"];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alertView.delegate = self;
-        alertView.tag = 4;
-        [alertView show];
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"该功能需要登录后才能使用" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+//        alertView.delegate = self;
+//        alertView.tag = 4;
+//        [alertView show];
     }else{
         [super setSelectedIndex:selectedIndex];
        // [self updateNavigationItem];
