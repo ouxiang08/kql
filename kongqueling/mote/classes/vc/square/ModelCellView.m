@@ -20,6 +20,7 @@
      UILabel *_cateLbl;
      UILabel *_bWHLbl;
      UILabel *_priceLbl;
+     UILabel *_hoursLbl;
      UIImageView *_vipImgV;
      UIImageView *_lineImgV;
 
@@ -89,7 +90,7 @@
             
             genderImg = [UIImage imageNamed:@"female_small"];
         }
-        _genderImgV.frame = CGRectMake(nameWidth+5, 143, genderImg.size.width, genderImg.size.height);
+        _genderImgV.frame = CGRectMake(nameWidth+8, 143, genderImg.size.width, genderImg.size.height);
     }else{
         if (model.age > 0) {
             
@@ -99,7 +100,7 @@
         }else{
             genderImg = [UIImage imageNamed:@"male_small"];
         }
-        _genderImgV.frame = CGRectMake(nameWidth+5, 143, genderImg.size.width, genderImg.size.height);
+        _genderImgV.frame = CGRectMake(nameWidth+8, 143, genderImg.size.width, genderImg.size.height);
     }
     _genderImgV.image = genderImg;
     [self addSubview:_genderImgV];
@@ -107,7 +108,7 @@
     _cityLbl = [[UILabel alloc] init];
     CGSize citySize = [self sizeForLalbelWithContont:model.city andFontSize:14.0f];
     CGFloat cityWidth = citySize.width>45 ? 45 : citySize.width;
-    _cityLbl.frame = CGRectMake(avatarImgWidth-cityWidth, 138, cityWidth, citySize.height);
+    _cityLbl.frame = CGRectMake(avatarImgWidth-cityWidth-2, 140, cityWidth, citySize.height);
     _cityLbl.backgroundColor = [UIColor clearColor];
     _cityLbl.textColor = [UIColor blackColor];
     _cityLbl.font = [UIFont systemFontOfSize:14.0f];
@@ -155,7 +156,19 @@
         _priceLbl.font = [UIFont systemFontOfSize:16.0f];
         _priceLbl.text = [NSString stringWithFormat:@"￥%@",model.price];
         [self addSubview:_priceLbl];
+        
+        // /小时
+        _hoursLbl = [[UILabel alloc] init];
+        _hoursLbl.frame = CGRectMake(10+priceSize.width+5, 182, 45, 20);
+        _hoursLbl.textColor = [UIColor lightGrayColor];
+        _hoursLbl.backgroundColor = [UIColor clearColor];
+        _hoursLbl.font = [UIFont systemFontOfSize:10.0f];
+        _hoursLbl.text = [NSString stringWithFormat:@"/小时"];
+        [self addSubview:_hoursLbl];
     }
+   
+
+    
     //是否是Vip
     if (model.isVip==1) {
         _vipImgV = [[UIImageView alloc] init];

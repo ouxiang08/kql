@@ -27,5 +27,6 @@
     #import "FilePathHelper.h"
     #import "NSString+Additions.h"
     #import "UIView+Additions.h"
+    #import "NSString+URLENCODE.h"
     #import <ShareSDK/ShareSDK.h>
 #endif

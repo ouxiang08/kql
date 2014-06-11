@@ -15,7 +15,7 @@
 #define ModelViewHeight 205
 #define ModelViewMargin 10
 
-@interface SquareViewController ()<UIScrollViewDelegate,ConditionSelectedDelegate,UITextFieldDelegate,ModelCellViewDelegate>{
+@interface SquareViewController ()<UIScrollViewDelegate,ConditionSelectedDelegate,UITextFieldDelegate,ModelCellViewDelegate,UISearchBarDelegate>{
 
     NSUInteger _ModelViewCount;
     
@@ -40,6 +40,7 @@
 @synthesize buttonGender;
 @synthesize buttonCate;
 @synthesize buttonDefault;
+@synthesize squareSearchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,8 +66,17 @@
     _recycledModelViews = [[NSMutableSet alloc] init];
     _modelListArray = [[NSMutableArray alloc] init];
     
+    squareSearchBar = [[UISearchBar alloc] init];
+    squareSearchBar.frame = CGRectMake(0.0, 0.0, self.view.bounds.size.width, 45);
+    squareSearchBar.delegate = self;
+    squareSearchBar.showsCancelButton = NO;
+    squareSearchBar.barStyle=UIBarStyleDefault;
+    squareSearchBar.placeholder=@"寻找模特,摄影";
+    squareSearchBar.keyboardType=UIKeyboardTypeNamePhonePad;
+     self.navigationItem.titleView = squareSearchBar;
+    
     _pagingScrollView = [[UIScrollView alloc] init];
-    _pagingScrollView.frame = CGRectMake(0, 80, self.view.width, self.view.height-45);
+    _pagingScrollView.frame = CGRectMake(0, 45, self.view.width, self.view.height-45);
 	_pagingScrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	_pagingScrollView.delegate = self;
 //	_pagingScrollView.showsHorizontalScrollIndicator = NO;
@@ -84,7 +94,7 @@
 
 -(void)viewTapped:(UITapGestureRecognizer*)tapGr
 {
-    [_txtSearch resignFirstResponder];
+    [self.squareSearchBar resignFirstResponder];
 }
 
 - (void)loadModelList{
@@ -243,17 +253,26 @@
     [self loadModelList];
 }
 -(void)selectWithCate:(NSString *)strCate{
-    _cate = strCate;
+    
+    [self.buttonCate setTitle:strCate forState:UIControlStateNormal];
+    _cate = [strCate urlencode];
     _from = 1;
     [_modelListArray removeAllObjects];
-    [self.buttonCate setTitle:_cate forState:UIControlStateNormal];
+    //[self.buttonCate setTitle:_cate forState:UIControlStateNormal];
     [self loadModelList];
 }
 -(void)selectWithSort:(NSString *)strSort{
-    _sort = strSort;
+    if ([strSort isEqualToString:@"人气"]) {
+         _sort = @"reqi";
+    }else if ([strSort isEqualToString:@"价格"]){
+        _sort = @"jiage";
+    }else{
+        _sort = @"";
+    }
+   
     _from = 1;
     [_modelListArray removeAllObjects];
-    [self.buttonDefault setTitle:_sort forState:UIControlStateNormal];
+    [self.buttonDefault setTitle:strSort forState:UIControlStateNormal];
     [self loadModelList];
 }
 
@@ -268,12 +287,27 @@
 
 #pragma mark - UITextFieldDelegate Methods
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+//    _from = 1;
+//    [_modelListArray removeAllObjects];
+//    [self loadModelList];
+//    [_txtSearch resignFirstResponder];
+//    return YES;
+//}
+
+#pragma mark - UISearchBarDelegate Methods
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     _from = 1;
+    _key = self.squareSearchBar.text;
     [_modelListArray removeAllObjects];
     [self loadModelList];
-    [_txtSearch resignFirstResponder];
-    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar{
+
+    _key = @"";
+    [self.squareSearchBar resignFirstResponder];
 }
 
 #pragma mark - ModelCellViewDelegate Methods

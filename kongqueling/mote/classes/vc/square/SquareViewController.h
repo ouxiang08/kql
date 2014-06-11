@@ -13,6 +13,6 @@
 @property(nonatomic, strong) IBOutlet UIButton *buttonGender;
 @property(nonatomic, strong) IBOutlet UIButton *buttonCate;
 @property(nonatomic, strong) IBOutlet UIButton *buttonDefault;
-@property (weak, nonatomic) IBOutlet UITextField *txtSearch;
+@property(nonatomic, strong) UISearchBar *squareSearchBar;
 
 @end
